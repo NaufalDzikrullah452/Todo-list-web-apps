@@ -27,6 +27,22 @@ $config['base_url'] = ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ?
 $config['base_url'] .= "://" . $_SERVER['HTTP_HOST'];
 $config['base_url'] .= preg_replace('@/+$@', '', dirname($_SERVER['SCRIPT_NAME'])) . '/';
 
+//Setingan Folder Assets dan Folder didalamnya
+
+// Folder assets milik auth
+$config['assets_auth'] = $config['base_url'] . 'assets/auth/';
+$config['css_auth'] = $config['assets_auth'] . 'css/';
+$config['vendor'] = $config['assets_auth'] . 'vendor/'; 
+$config['fonts'] = $config['assets_auth'] . 'fonts/'; 
+$config['js_auth'] = $config['assets_auth'] . 'js/';
+// Folder assets milik auth
+
+// Folder assets milik dashboard
+$config['assets_dashboard'] = $config['base_url'] . 'assets/dashboard/';
+// $config['css2'] = $config['assets_dashboard'] . 'css/';
+// $config['plugins'] = $config['assets_dashboard'] . 'plugins/';
+// $config['js2'] = $config['assets_dashboard'] . 'js/';
+// Folder assets milik dashboard
 
 /*
 |--------------------------------------------------------------------------
