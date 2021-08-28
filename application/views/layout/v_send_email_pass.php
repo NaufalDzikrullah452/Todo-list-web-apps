@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Sign In Your Todo</title>
+	<title>Send link via email</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -34,66 +34,31 @@
 			<div class="wrap-login100">
 				<form class="login100-form validate-form">
 					<span class="login100-form-title p-b-43">
-						Hi, Welcome Back
+						Forgot Password?
 					</span>
-					
+						<div><br>
+					<p class="txt3" style="text-align: center; font-size: 18px;">Enter the email address <br>
+                    associated with your account</p>
+                     <br>
+                     <p class="txt2" style="text-align: center; font-size: 16px;">We will email you a link 
+                     to reset <br>your password</p>
+						</div>
+						<br><br>
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
 						<input class="input100" type="text" name="email">
 						<span class="focus-input100"></span>
-						<span class="label-input100">Email</span>
+						<span class="label-input100"> Your Email</span>
 					</div>
-					
-					
-					<div class="wrap-input100 validate-input" data-validate="Password is required">
-						<input class="input100" type="password" name="pass">
-						<span class="focus-input100"></span>
-						<span class="label-input100">Password</span>
-					</div>
-
-					<div class="flex-sb-m w-full p-t-3 p-b-32">
-						<div class="contact100-form-checkbox">
-							<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-							<label class="label-checkbox100" for="ckb1">
-								Remember me
-							</label>
-						</div>
-
-						<div>
-							<a href="#" class="txt1">
-								Forgot Password?
-							</a>
-						</div>
-					</div>
-			
-
+                    <br><br>
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn">
-							Login
+							Send
 						</button>
 					</div>
-
-					<div><br>
-					Don't have an account?
-							<a href="<?php echo site_url('index.php/sign_up');?>" class="txt3"> &nbsp;Sign Up</a>
-						</div>
-						<br>
-					<hr>
-					<div class="text-center p-t-30 p-b-20">
-						<span class="txt2">
-							or sign in using
-						</span>
-					</div>
-
-					<div class="login100-form-social flex-c-m">
-						
-						<a href="#" class="login100-form-social-item flex-c-m bg2 m-r-5">
-							<i class="fa fa-google" aria-hidden="true"></i>
-						</a>
-
-					</div>
+					
 				</form>
 
-				<div class="login100-more" style="background-image: url('<?php echo base_url('assets/auth/images/bg_icon.jpg');?>">
+				<div class="login100-more" style="background-image: url('<?php echo base_url('assets/auth/images/bg_forgot_pass.jpg');?>">
 				</div>
 			</div>
 		</div>
