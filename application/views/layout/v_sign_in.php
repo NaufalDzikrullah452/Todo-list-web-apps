@@ -41,6 +41,7 @@
 
 					<?php if ($this->session->flashdata('message')) {
 						echo $this->session->flashdata('message');
+						unset($_SESSION['message']);
 					} ?>
 					<div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
 						<input class="input100" type="text" id="email" name="email">

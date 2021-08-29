@@ -36,7 +36,7 @@ class Sign_in extends CI_Controller
 					'user_email' => $user['user_email']
 				];
 				$this->session->set_userdata($data);
-				redirect('welcome_message.php');
+				redirect('User');
 			} else {
 				$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
 				Your password wrong! </div>');
