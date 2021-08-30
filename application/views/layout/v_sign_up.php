@@ -32,29 +32,31 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form">
+				<form class="login100-form validate-form" method="post" action="<?= base_url('index.php/sign_up') ?>">
 					<span class="login100-form-title p-b-43">
 						Get's Started
 					</span>
 					
-					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+					<div class="wrap-input100 ">
 						<input class="input100" type="text" name="email">
 						<span class="focus-input100"></span>
 						<span class="label-input100">Email</span>
 					</div>
+					<?= form_error('email', '<small class="text-danger pl-2">', '</small>') ?>
 					
-					
-					<div class="wrap-input100 validate-input" data-validate="Password is required">
-						<input class="input100" type="password" name="pass">
+					<div class="wrap-input100 " >
+						<input class="input100" type="password" name="pass1">
 						<span class="focus-input100"></span>
 						<span class="label-input100">Password</span>
 					</div>
+					<?= form_error('pass1', '<small class="text-danger pl-2">', '</small>') ?>
 
-                    <div class="wrap-input100 validate-input" data-validate="Password is required">
-						<input class="input100" type="password" name="pass">
+                    <div class="wrap-input100 " data-validate="Password is required">
+						<input class="input100" type="password" name="pass2">
 						<span class="focus-input100"></span>
 						<span class="label-input100">Confirm Password</span>
 					</div>
+
 
 					<div class="flex-sb-m w-full p-t-3 p-b-32">
 						<div class="contact100-form-checkbox">
@@ -68,8 +70,8 @@
 			
 
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
-							Login
+						<button class="login100-form-btn" type="submit">
+							Sign In
 						</button>
 					</div>
 

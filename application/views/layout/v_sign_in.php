@@ -32,23 +32,29 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form">
+				<form class="login100-form validate-form " method="post" action="<?= base_url('index.php/Sign_in') ?>">
 					<span class="login100-form-title p-b-43">
 						Hi, Welcome Back
 					</span>
+
+					<?php if ($this->session->flashdata('message')) {
+						echo $this->session->flashdata('message');
+						unset($_SESSION['message']);
+					} ?>
 					
-					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+					<div class="wrap-input100 ">
 						<input class="input100" type="text" name="email">
 						<span class="focus-input100"></span>
 						<span class="label-input100">Email</span>
 					</div>
+					<?= form_error('email', '<small class="text-danger pl-2">', '</small>') ?>
 					
-					
-					<div class="wrap-input100 validate-input" data-validate="Password is required">
+					<div class="wrap-input100 ">
 						<input class="input100" type="password" name="pass">
 						<span class="focus-input100"></span>
 						<span class="label-input100">Password</span>
 					</div>
+					<?= form_error('pass', '<small class="text-danger pl-2">', '</small>') ?>
 
 					<div class="flex-sb-m w-full p-t-3 p-b-32">
 						<div class="contact100-form-checkbox">
@@ -67,7 +73,7 @@
 			
 
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
+						<button class="login100-form-btn" type="submit">
 							Login
 						</button>
 					</div>

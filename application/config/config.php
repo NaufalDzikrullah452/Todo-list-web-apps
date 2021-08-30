@@ -39,9 +39,11 @@ $config['js_auth'] = $config['assets_auth'] . 'js/';
 
 // Folder assets milik dashboard
 $config['assets_dashboard'] = $config['base_url'] . 'assets/dashboard/';
-// $config['css2'] = $config['assets_dashboard'] . 'css/';
-// $config['plugins'] = $config['assets_dashboard'] . 'plugins/';
-// $config['js2'] = $config['assets_dashboard'] . 'js/';
+$config['css_dashboard'] = $config['assets_dashboard'] . 'css/';
+$config['icons'] = $config['assets_dashboard'] . 'icons/';
+$config['images_dashboard'] = $config['assets_dashboard'] . 'images/';
+$config['plugins'] = $config['assets_dashboard'] . 'plugins/';
+$config['js_dashboard'] = $config['assets_dashboard'] . 'js/';
 // Folder assets milik dashboard
 
 /*
