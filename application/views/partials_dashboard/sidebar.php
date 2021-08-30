@@ -6,22 +6,22 @@
                 <ul class="metismenu" id="menu">
                     <li class="nav-label">Dashboard</li>
                     <li>
-                        <a href="widgets.html" aria-expanded="false">
+                        <a href="<?= site_url('dashboard/today') ?>" aria-expanded="false">
                             <i class="fa fa-calendar-o menu-icon"></i><span class="nav-text">Today</span>
                         </a>
                     </li>
                     <li>
-                        <a href="widgets.html" aria-expanded="false">
+                        <a href="<?= site_url('dashboard/priority') ?>" aria-expanded="false">
                             <i class="fa fa-star-o menu-icon"></i><span class="nav-text">Priority</span>
                         </a>
                     </li>
                     <li>
-                        <a href="widgets.html" aria-expanded="false">
+                        <a href="<?= site_url('dashboard/task') ?>" aria-expanded="false">
                             <i class="icon-clipboard menu-icon"></i><span class="nav-text">Task</span>
                         </a>
                     </li>
                     <li>
-                        <a href="widgets.html" aria-expanded="false">
+                        <a href="<?= site_url('dashboard/performance') ?>" aria-expanded="false">
                             <i class="icon-graph menu-icon"></i><span class="nav-text">Performance</span>
                         </a>
                     </li>

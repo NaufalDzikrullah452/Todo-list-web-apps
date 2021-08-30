@@ -77,7 +77,7 @@
 
 					<div><br>
 					Already have an account?
-							<a href="#" class="txt3"> &nbsp;Sign In</a>
+							<a href="<?= site_url('sign_in')?>" class="txt3"> &nbsp;Sign In</a>
 						</div>
 						<br>
 					<hr>
@@ -96,7 +96,7 @@
 					</div>
 				</form>
 
-				<div class="login100-more" style="background-image: url('<?php echo base_url('assets/auth/images/bg_icon.jpg');?>">
+				<div class="login100-more" style="background-image: url('<?php echo base_url('assets/auth/images/bg_icon.jpg');?>')">
 				</div>
 			</div>
 		</div>

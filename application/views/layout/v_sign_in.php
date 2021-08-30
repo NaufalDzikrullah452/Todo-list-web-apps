@@ -65,7 +65,7 @@
 						</div>
 
 						<div>
-							<a href="#" class="txt1">
+							<a href="<?= site_url('send_email')?>" class="txt1">
 								Forgot Password?
 							</a>
 						</div>
@@ -80,7 +80,7 @@
 
 					<div><br>
 					Don't have an account?
-							<a href="<?php echo site_url('index.php/sign_up');?>" class="txt3"> &nbsp;Sign Up</a>
+							<a href="<?php echo site_url('sign_up');?>" class="txt3"> &nbsp;Sign Up</a>
 						</div>
 						<br>
 					<hr>
@@ -99,7 +99,7 @@
 					</div>
 				</form>
 
-				<div class="login100-more" style="background-image: url('<?php echo base_url('assets/auth/images/bg_icon.jpg');?>">
+				<div class="login100-more" style="background-image: url('<?php echo base_url('assets/auth/images/bg_icon.jpg');?>')">
 				</div>
 			</div>
 		</div>
