@@ -32,13 +32,13 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form">
+				<form class="login100-form validate-form" action="<?= site_url('new_password/renew')?>" method="POST">
 					<span class="login100-form-title p-b-43">
 						Create New Password
 					</span>
 						<div><br>
 					<p class="txt3" style="text-align: center; font-size: 18px;">Your new password must  be different
-                     from previousky used pasword</p>
+                     from previously used pasword</p>
 						</div>
 						<br><br>
 
@@ -63,7 +63,7 @@
 					
 				</form>
 
-				<div class="login100-more" style="background-image: url('<?php echo base_url('assets/auth/images/bg_forgot_pass.jpg');?>">
+				<div class="login100-more" style="background-image: url('<?php echo base_url('assets/auth/images/bg_forgot_pass.jpg');?>')">
 				</div>
 			</div>
 		</div>
