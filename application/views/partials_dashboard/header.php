@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title><?= $title ?></title>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url('assets/auth/images/icons/logo.png');?>">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url('assets/auth/images/icons/logo.png'); ?>">
     <!-- Pignose Calender -->
     <link href="<?= config_item('plugins') ?>pg-calendar/css/pignose.calendar.min.css" rel="stylesheet">
     <!-- Date picker and Clock picker plugins css -->
@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="<?= config_item('plugins') ?>chartist-plugin-tooltips/css/chartist-plugin-tooltip.css">
     <!-- Custom Stylesheet -->
     <link href="<?= config_item('css_dashboard') ?>style.css" rel="stylesheet">
+    <!-- Toastr -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
 
 </head>
 
@@ -41,7 +43,7 @@
         Preloader end
     ********************-->
 
-    
+
     <!--**********************************
         Main wrapper start
     ***********************************-->
@@ -52,7 +54,7 @@
         ***********************************-->
         <div class="nav-header">
             <div class="brand-logo">
-                <a href="<?= site_url('dashboard/today')?>">
+                <a href="<?= site_url('dashboard/today') ?>">
                     <b class="logo-abbr"><img src="<?= config_item('images_dashboard') ?>logo.png" alt=""> </b>
                     <span class="logo-compact"><img src="<?= config_item('images_dashboard') ?>logo-text.png" alt=""></span>
                     <span class="brand-title">
@@ -68,9 +70,9 @@
         <!--**********************************
             Header start
         ***********************************-->
-        <div class="header">    
+        <div class="header">
             <div class="header-content clearfix">
-                
+
                 <div class="nav-control">
                     <div class="hamburger">
                         <span class="toggle-icon"><i class="icon-menu"></i></span>
@@ -92,7 +94,7 @@
                 <div class="header-right">
                     <ul class="clearfix">
                         <li class="icons dropdown">
-                            <div class="user-img c-pointer position-relative"   data-toggle="dropdown">
+                            <div class="user-img c-pointer position-relative" data-toggle="dropdown">
                                 <span class="activity active"></span>
                                 <img src="<?= config_item('images_dashboard') ?>user/1.png" height="40" width="40" alt="">
                             </div>
@@ -100,7 +102,7 @@
                                 <div class="dropdown-content-body">
                                     <ul>
                                         <li>
-                                            <a href="<?= site_url('dashboard/account')?>"><i class="icon-user"></i> <span>Profile</span></a>
+                                            <a href="<?= site_url('dashboard/account') ?>"><i class="icon-user"></i> <span>Profile</span></a>
                                         </li>
                                         <li><a href="<?= base_url('index.php/sign_in/signout') ?>"><i class="icon-key"></i> <span>Logout</span></a></li>
                                     </ul>

@@ -25,21 +25,25 @@ class Task_model extends CI_Model
         return $this->db->get_where($this->_table, array('task_id' => $id))->row();
     }
 
-    public function save()
+    public function save($data)
     {
-        $post = $this->input->post();
+        // $post = $this->input->post();
 
-        $this->task_name = $post['task_name'];
-        $this->task_description = $post['task_description'];
-        $this->task_status = $post['task_status'];
-        $this->task_due_date = $post['task_due_date'];
-        $this->task_time = $post['task_time'];
-        $this->task_priority_status = $post['task_priority_status'];
+        // $this->task_name = $post['task_name'];
+        // $this->task_description = $post['task_description'];
+        // $this->task_status = $post['task_status'];
+        // $this->task_due_date = $post['task_due_date'];
+        // $this->task_time = $post['task_time'];
+        // $this->task_priority_status = $post['task_priority_status'];
 
-        $this->task_user_id = $post['task_user_id'];
-        $this->task_category_id = $post['task_category_id'];
+        // $this->task_user_id = $post['task_user_id'];
+        // $this->task_category_id = $post['task_category_id'];
 
-        return $this->db->insert($this->_table, $this);
+        // nyoba sebelum insert database
+        return true;
+
+        // return $this->db->insert($this->_table, $data);
+
     }
 
     public function update($id)
