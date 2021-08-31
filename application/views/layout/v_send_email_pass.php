@@ -32,7 +32,7 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form">
+				<form class="login100-form validate-form" action="<?= site_url('send_email/send')?>" method="POST">
 					<span class="login100-form-title p-b-43">
 						Forgot Password?
 					</span>
@@ -58,7 +58,7 @@
 					
 				</form>
 
-				<div class="login100-more" style="background-image: url('<?php echo base_url('assets/auth/images/bg_forgot_pass.jpg');?>">
+				<div class="login100-more" style="background-image: url('<?php echo base_url('assets/auth/images/bg_forgot_pass.jpg');?>')">
 				</div>
 			</div>
 		</div>

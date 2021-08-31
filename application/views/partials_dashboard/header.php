@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Dashboard - Today</title>
+    <title><?= $title ?></title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url('assets/auth/images/icons/logo.png');?>">
     <!-- Pignose Calender -->
@@ -52,7 +52,7 @@
         ***********************************-->
         <div class="nav-header">
             <div class="brand-logo">
-                <a href="index.html">
+                <a href="<?= site_url('dashboard/today')?>">
                     <b class="logo-abbr"><img src="<?= config_item('images_dashboard') ?>logo.png" alt=""> </b>
                     <span class="logo-compact"><img src="<?= config_item('images_dashboard') ?>logo-text.png" alt=""></span>
                     <span class="brand-title">
@@ -100,7 +100,7 @@
                                 <div class="dropdown-content-body">
                                     <ul>
                                         <li>
-                                            <a href="app-profile.html"><i class="icon-user"></i> <span>Profile</span></a>
+                                            <a href="<?= site_url('dashboard/account')?>"><i class="icon-user"></i> <span>Profile</span></a>
                                         </li>
                                         <li><a href="<?= base_url('index.php/sign_in/signout') ?>"><i class="icon-key"></i> <span>Logout</span></a></li>
                                     </ul>
