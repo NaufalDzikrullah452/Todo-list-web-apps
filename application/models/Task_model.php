@@ -27,6 +27,11 @@ class Task_model extends CI_Model
 
     public function save($data)
     {
+        // change YYYY/MM/DD to YYYY-MM-DD
+        $var = $data['task_due_date'];
+        $date = str_replace('/', '-', $var);
+        $data['task_due_date'] = date('Y-m-d', strtotime($date));
+
         // $post = $this->input->post();
 
         // $this->task_name = $post['task_name'];
@@ -43,7 +48,6 @@ class Task_model extends CI_Model
         return true;
 
         // return $this->db->insert($this->_table, $data);
-
     }
 
     public function update($id)
@@ -60,11 +64,42 @@ class Task_model extends CI_Model
         $this->task_user_id = $post['task_user_id'];
         $this->task_category_id = $post['task_category_id'];
 
-        return $this->db->update($this->_table, $this, array('task_id', $id));
+        // var_dump($this);
+        return $this->db->update($this->_table, $this, array('task_id' => $id));
+    }
+
+
+    public function update_status($id)
+    {
+        $boolean = true;
+        $data = $this->getById($id);
+        $this->task_name = $data->task_name;
+        $this->task_description = $data->task_description;
+        $this->task_due_date = $data->task_due_date;
+        $this->task_time = $data->task_time;
+        $this->task_priority_status = $data->task_priority_status;
+
+        if ($data->task_status != 'complete') {
+            $this->task_status = 'complete';
+            $boolean = true;
+        } else {
+            $this->task_status = 'uncomplete';
+            $boolean = false;
+        }
+
+        $this->db->update($this->_table, $this, array('task_id' => $id));
+        return $boolean;
+
+        // return true;
     }
 
     public function delete($id)
     {
-        return $this->db->delete($this->_table, array('task_id', $id));
+        return $this->db->delete($this->_table, array('task_id' => $id));
+    }
+
+    public function get_last_insert()
+    {
+        return $this->db->insert_id();
     }
 }

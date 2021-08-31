@@ -24,6 +24,8 @@
     <link href="<?= config_item('css_dashboard') ?>style.css" rel="stylesheet">
     <!-- Toastr -->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    <!-- Datatables -->
+    <link rel="stylesheet" href="//cdn.datatables.net/1.11.0/css/jquery.dataTables.min.css">
 
 </head>
 

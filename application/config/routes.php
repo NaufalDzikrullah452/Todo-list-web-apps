@@ -55,4 +55,4 @@ $route['default_controller'] = 'Sign_in';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['save'] = 'dashboard/today/save';
-$route['fetch'] = 'dashboard/today/fetch';
+$route['edit_status'] = 'dashboard/today/edit_status';

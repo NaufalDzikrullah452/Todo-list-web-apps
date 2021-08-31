@@ -19,9 +19,11 @@ class Today extends CI_Controller
         // echo 'Selamat Datang ' . $data['user']['user_email'];
         $data['title'] = "Today";
 
+        $data['task'] = $this->task_model->getAll();
+
         $this->load->view('partials_dashboard/header', $data);
         $this->load->view('partials_dashboard/sidebar');
-        $this->load->view('layout/dashboard/v_today');
+        $this->load->view('layout/dashboard/v_today', $data);
         $this->load->view('partials_dashboard/footer');
     }
 
@@ -51,18 +53,25 @@ class Today extends CI_Controller
         }
     }
 
-    public function fetch()
+    public function edit()
     {
-        if ($this->input->is_ajax_request()) {
-            $posts = $this->task_model->getAll();
-            if ($posts) {
-                $data = array('responce' => 'success', 'posts' => $posts);
-            } else {
-                $data = array('responce' => 'error', 'message' => 'Failed to fetch task!');
-            }
-            echo json_encode($data);
+        if ($this->task_model->update($this->input->post('task_id'))) {
+            redirect('index.php/dashboard/today');
+        }
+    }
+    public function edit_status()
+    {
+        if ($this->task_model->update_status($this->input->post('task_id'))) {
+            $data = array('responce' => 'complete', 'message' => 'Task Completed!');
         } else {
-            echo "No direct script access allowed";
+            $data = array('responce' => 'uncomplete', 'message' => 'Task Uncompleted!');
+        }
+        echo json_encode($data);
+    }
+    public function delete()
+    {
+        if ($this->task_model->delete($this->input->post('task_id'))) {
+            redirect('index.php/dashboard/today');
         }
     }
 }
