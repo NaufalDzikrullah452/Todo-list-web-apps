@@ -10,6 +10,13 @@
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url('assets/auth/images/icons/logo.png');?>">
     <!-- Pignose Calender -->
     <link href="<?= config_item('plugins') ?>pg-calendar/css/pignose.calendar.min.css" rel="stylesheet">
+    <!-- Date picker and Clock picker plugins css -->
+    <!-- Custom Stylesheet -->
+    <link href="<?= config_item('plugins') ?>bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet">
+    <link href="<?= config_item('plugins') ?>clockpicker/dist/jquery-clockpicker.min.css" rel="stylesheet">
+    <link href="<?= config_item('plugins') ?>bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet">
+    <link href="<?= config_item('plugins') ?>timepicker/bootstrap-timepicker.min.css" rel="stylesheet">
+    <link href="<?= config_item('plugins') ?>bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
     <!-- Chartist -->
     <link rel="stylesheet" href="<?= config_item('plugins') ?>chartist/css/chartist.min.css">
     <link rel="stylesheet" href="<?= config_item('plugins') ?>chartist-plugin-tooltips/css/chartist-plugin-tooltip.css">

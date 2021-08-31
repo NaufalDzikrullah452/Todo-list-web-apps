@@ -17,7 +17,7 @@
                     </li>
                     <li>
                         <a href="widgets.html" aria-expanded="false">
-                            <i class="icon-clipboard menu-icon"></i><span class="nav-text">Task</span>
+                            <i class="icon-list menu-icon"></i><span class="nav-text">Task</span>
                         </a>
                     </li>
                     <li>
