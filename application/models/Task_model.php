@@ -20,6 +20,11 @@ class Task_model extends CI_Model
         return $this->db->get($this->_table)->result();
     }
 
+    public function getAllPrioritized($user_id)
+    {
+        return $this->db->get_where($this->_table, array('task_user_id' => $user_id, 'task_priority_status' => 1))->result();
+    }
+
     public function getById($id)
     {
         return $this->db->get_where($this->_table, array('task_id' => $id))->row();
