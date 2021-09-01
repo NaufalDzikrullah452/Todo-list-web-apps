@@ -10,6 +10,7 @@ class Sign_up extends CI_Controller
 	}
 	public function index()
 	{
+		$this->form_validation->set_rules('username', 'Username', 'required|trim');
 		$this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[tbl_user.user_email]', [
 			'is_unique' => 'The Email Account Already Exists!'
 		]);
@@ -24,7 +25,7 @@ class Sign_up extends CI_Controller
 		} else {
 			$data = [
 				'user_picture' => 'default.jpg',
-				'user_username' => htmlspecialchars($this->input->post('email', true)),
+				'user_username' => htmlspecialchars($this->input->post('username', true)),
 				'user_email' => htmlspecialchars($this->input->post('email', true)),
 				'user_password' => md5($this->input->post('pass1')),
 			];

@@ -7,7 +7,6 @@ class Sign_in extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->library('form_validation');
-		
 	}
 	public function index()
 	{
@@ -40,6 +39,7 @@ class Sign_in extends CI_Controller
 					'user_email' => $user['user_email']
 				];
 				$this->session->set_userdata($data);
+				$this->session->set_userdata('logged', TRUE);
 				redirect('index.php/dashboard/Today');
 			} else {
 				$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
@@ -53,9 +53,10 @@ class Sign_in extends CI_Controller
 		}
 	}
 
-	function signout(){
-        $this->session->sess_destroy();
-        $url=base_url('index.php/Sign_in');
-        redirect($url);
-    }
+	function signout()
+	{
+		$this->session->sess_destroy();
+		$url = base_url('index.php/Sign_in');
+		redirect($url);
+	}
 }

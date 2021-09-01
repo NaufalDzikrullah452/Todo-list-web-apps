@@ -7,6 +7,9 @@ class Today extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        if ($this->session->userdata('logged') != TRUE) {
+            redirect('index.php/Sign_in');
+        };
 
         $this->load->helper(array('form', 'url'));
         $this->load->library('form_validation');
@@ -21,7 +24,7 @@ class Today extends CI_Controller
         // echo 'Selamat Datang ' . $data['user']['user_email'];
         $data['title'] = "Today";
 
-        $data['task'] = $this->task_model->getAll();
+        $data['task'] = $this->task_model->getTaskByIdToday($this->session->userdata('user_id'));
 
         $this->load->view('partials_dashboard/header', $data);
         $this->load->view('partials_dashboard/sidebar');
@@ -35,8 +38,9 @@ class Today extends CI_Controller
     {
         $var = $this->input->post('task_due_date');
         $str_rep = str_replace('/', '-', $var);
-        $date = date('Y-m-d', strtotime($str_rep));
+        $date = date('Y-d-m', strtotime($str_rep));
         $data = [
+            'task_user_id' => $this->session->userdata('user_id'),
             'task_name' => $this->input->post('task_name', true),
             'task_description' => $this->input->post('task_description', true),
             'task_category_id' => $this->input->post('task_category_id', true),
