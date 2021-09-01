@@ -11,6 +11,8 @@ class Sign_in extends CI_Controller
 	}
 	public function index()
 	{
+		if ($this->session->userdata('user_email') != null) redirect('index.php/dashboard/today');
+
 		$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
 		$this->form_validation->set_rules('pass', 'Password', 'trim|required');
 		if ($this->form_validation->run() == false) {
