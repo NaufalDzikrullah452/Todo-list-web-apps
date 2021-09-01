@@ -1,4 +1,32 @@
 <script>
+
+function httpGet(theUrl)
+{
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+    xmlHttp.send( null );
+    return xmlHttp.responseText;
+}
+
+function fillArray(arr)
+{
+  if (arr.length == 0){
+    return [0,0,0,0];
+  }
+
+  for(i = 0; i <= (4 - arr.length + 1); i++){
+    arr.push(0);
+  }
+
+  return arr;
+}
+
+var completeEachWeek = fillArray(JSON.parse(httpGet('<?php echo site_url('index.php/dashboard/performance/completed_each_week'); ?>')).completedEachWeek);
+var uncompleteEachWeek = fillArray(JSON.parse(httpGet('<?php echo site_url('index.php/dashboard/performance/uncompleted_each_week'); ?>')).uncompletedEachWeek);
+
+var categoryCount = JSON.parse(httpGet('<?php echo site_url('index.php/dashboard/performance/statistics'); ?>'));
+var totalTask = JSON.parse(httpGet('<?php echo site_url('index.php/dashboard/performance/total_task'); ?>')).totalCount[0].total;
+
 /*--------------  overview-chart start ------------*/
  if ($('#monthly_task').length) {
 
@@ -52,10 +80,10 @@
   },
   series: [{
     name: 'Complete',
-    data: [3, 4, 3, 5]
+    data: completeEachWeek.reverse()
   }, {
     name: 'Uncomplete',
-    data: [1, 3, 4, 3]
+    data: uncompleteEachWeek.reverse()
   }]
 });
 } 
@@ -97,7 +125,7 @@ if ($('#category_task').length) {
                     "x": "45%",
                     "y": "47%",
                     "width": "10%",
-                    "text": "100 Task",
+                    "text": totalTask + " Task",
                     "font-size": 20,
                     "font-weight": 700
                 }],
@@ -117,32 +145,32 @@ if ($('#category_task').length) {
                     }
                 },
                 "series": [{
-                        "values": [10],
+                        "values": [(categoryCount["Work"] ? categoryCount["Work"] : 0) * (100/totalTask)],
                         "text": "Work",
                         "background-color": "#4cff63"
                     },
                     {
-                        "values": [30],
+                        "values": [(categoryCount["Sport"] ? categoryCount["Sport"] : 0) * (100/totalTask)],
                         "text": "Sport",
                         "background-color": "#fd9c21"
                     },
                     {
-                        "values": [10],
+                        "values": [(categoryCount["Study"] ? categoryCount["Study"] : 0) * (100/totalTask)],
                         "text": "Study",
                         "background-color": "#2c13f8"
                     },
                     {
-                        "values": [30],
+                        "values": [(categoryCount["Rest"] ? categoryCount["Rest"] : 0) * (100/totalTask)],
                         "text": "Rest",
                         "background-color": "#596275"
                     },
                     {
-                        "values": [10],
+                        "values": [(categoryCount["Grocery"] ? categoryCount["Grocery"] : 0) * (100/totalTask)],
                         "text": "Grocery",
                         "background-color": "#706fd3"
                     },
                     {
-                        "values": [10],
+                        "values": [(categoryCount["Others"] ? categoryCount["Others"] : 0) * (100/totalTask)],
                         "text": "Others",
                         "background-color": "#c8d6e5"
                     }

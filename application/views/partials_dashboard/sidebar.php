@@ -16,7 +16,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="<?= site_url('index.php/dashboard/task') ?>" aria-expanded="false">
+                        <a href="<?=site_url('index.php/dashboard/task') ?>" aria-expanded="false">
                             <i class="icon-list menu-icon"></i><span class="nav-text">Task</span>
                         </a>
                     </li>

@@ -11,6 +11,8 @@ class Sign_in extends CI_Controller
 	}
 	public function index()
 	{
+		if ($this->session->userdata('user_email') != null) redirect('index.php/dashboard/today');
+
 		$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
 		$this->form_validation->set_rules('pass', 'Password', 'trim|required');
 		if ($this->form_validation->run() == false) {
@@ -32,6 +34,7 @@ class Sign_in extends CI_Controller
 			if ($pass == $user['user_password']) {
 				// if user exist
 				$data = [
+					'user_id' => $user['user_id'],
 					'user_picture' => $user['user_picture'],
 					'user_username' => $user['user_username'],
 					'user_email' => $user['user_email']

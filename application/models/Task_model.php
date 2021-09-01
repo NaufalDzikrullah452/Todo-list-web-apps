@@ -20,6 +20,56 @@ class Task_model extends CI_Model
         return $this->db->get($this->_table)->result();
     }
 
+    public function getAllPrioritized($user_id)
+    {
+        return $this->db->get_where($this->_table, array('task_user_id' => $user_id, 'task_priority_status' => 1))->result();
+    }
+
+    public function getTotalByUserId($user_id)
+    {
+        return $this->db->query("
+        SELECT COUNT(*) as total
+        FROM tbl_task
+        WHERE task_user_id = {$user_id}
+        ")->result(); 
+    }
+
+    public function getEachTotalByKategori($user_id)
+    {
+        return $this->db->query("
+        SELECT category_name, COUNT(*) as total 
+        FROM tbl_task
+        INNER JOIN tbl_category ON task_category_id = category_id
+        WHERE task_user_id = {$user_id}
+        GROUP BY category_name
+        ")->result();
+    }
+
+    public function getCompletedEachWeek($user_id)
+    {
+        return $this->db->query("
+        SELECT count(*) as total
+        FROM tbl_task
+        WHERE task_user_id = {$user_id} AND task_status = 'complete'
+        GROUP BY yearweek(task_modified)
+        ORDER BY task_modified
+        LIMIT 4
+        ")->result();
+    }
+
+    public function getUncompletedEachWeek($user_id)
+    {
+        return $this->db->query("
+        SELECT count(*) as total
+        FROM tbl_task
+        WHERE task_user_id = {$user_id} AND task_status = 'uncomplete'
+        GROUP BY yearweek(task_modified)
+        ORDER BY task_modified
+        LIMIT 4
+        ")->result();
+    }
+
+
     public function getById($id)
     {
         return $this->db->get_where($this->_table, array('task_id' => $id))->row();

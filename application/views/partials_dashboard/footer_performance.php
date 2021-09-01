@@ -34,6 +34,29 @@
     ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "ee6b7db5b51705a13dc2339db3edaf6d"];
     </script>
 
+    <script>
+        var totalTask = 0
+        var categoryCount = []
+
+        $.ajax({
+        url: '<?php echo site_url('index.php/dashboard/performance/statistics'); ?>',
+        type: 'GET',
+        dataType: 'json',
+        success: function(data) {
+            categoryCount = data;
+        },
+        });
+
+        $.ajax({
+        url: '<?php echo site_url('index.php/dashboard/performance/total_task'); ?>',
+        type: 'GET',
+        dataType: 'json',
+        success: function(data) {
+            totalTask = data.totalCount[0].total;
+        }
+        });
+    </script>
+
 </body>
 
 </html>
