@@ -25,32 +25,30 @@ class Today extends CI_Controller
         $this->load->view('partials_dashboard/sidebar');
         $this->load->view('layout/dashboard/v_today', $data);
         $this->load->view('partials_dashboard/footer');
+        $this->load->view('partials_js/js_checklist_task');
+        $this->load->view('partials_js/js_priority_task');
     }
 
     public function save()
     {
-        if ($this->input->is_ajax_request()) {
-            //echo "ajax request successfully";
-            $this->form_validation->set_rules('task_name', 'Task_name', 'required');
-            $this->form_validation->set_rules('task_description', 'Task_description', 'required');
-            $this->form_validation->set_rules('task_category_id', 'Task_category_id', 'required');
-            $this->form_validation->set_rules('task_due_date', 'Task_due_date', 'required');
-            $this->form_validation->set_rules('task_time', 'Task_time', 'required');
-
-            if ($this->form_validation->run() == false) {
-                $data = array('responce' => 'error', 'message' => validation_errors());
-            } else {
-                $ajax_data = $this->input->post();
-                if ($this->task_model->save($ajax_data)) {
-                    $data = array('responce' => 'success', 'message' => 'Task successfully added!');
-                } else {
-                    $data = array('responce' => 'error', 'message' => 'Failed to add task!');
-                }
-                echo json_encode($data);
-            }
+        $var = $this->input->post('task_due_date');
+        $str_rep = str_replace('/', '-', $var);
+        $date = date('Y-m-d', strtotime($str_rep));
+        $data = [
+            'task_name' => $this->input->post('task_name', true),
+            'task_description' => $this->input->post('task_description', true),
+            'task_category_id' => $this->input->post('task_category_id', true),
+            'task_status' => 'uncomplete',
+            'task_due_date' => $date,
+            'task_time' => $this->input->post('task_time', true),
+            'task_priority_status' => '0'
+        ];
+        if ($this->task_model->save($data)) {
+            $this->session->set_flashdata('msg', 'success');
         } else {
-            echo "No direct scripts access allowed";
+            $this->session->set_flashdata('msg', 'error');
         }
+        redirect('index.php/dashboard/today');
     }
 
     public function edit()
@@ -65,6 +63,15 @@ class Today extends CI_Controller
             $data = array('responce' => 'complete', 'message' => 'Task Completed!');
         } else {
             $data = array('responce' => 'uncomplete', 'message' => 'Task Uncompleted!');
+        }
+        echo json_encode($data);
+    }
+    public function edit_priority_status()
+    {
+        if ($this->task_model->update_priority_status($this->input->post('task_id'))) {
+            $data = array('responce' => 1, 'message' => 'Task Priority!');
+        } else {
+            $data = array('responce' => 0, 'message' => 'Task Unpriority!');
         }
         echo json_encode($data);
     }
