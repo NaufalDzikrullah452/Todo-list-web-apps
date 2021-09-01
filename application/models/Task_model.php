@@ -45,6 +45,30 @@ class Task_model extends CI_Model
         ")->result();
     }
 
+    public function getCompletedEachWeek($user_id)
+    {
+        return $this->db->query("
+        SELECT count(*) as total
+        FROM tbl_task
+        WHERE task_user_id = {$user_id} AND task_status = 'complete'
+        GROUP BY yearweek(task_modified)
+        ORDER BY task_modified
+        LIMIT 4
+        ")->result();
+    }
+
+    public function getUncompletedEachWeek($user_id)
+    {
+        return $this->db->query("
+        SELECT count(*) as total
+        FROM tbl_task
+        WHERE task_user_id = {$user_id} AND task_status = 'uncomplete'
+        GROUP BY yearweek(task_modified)
+        ORDER BY task_modified
+        LIMIT 4
+        ")->result();
+    }
+
 
     public function getById($id)
     {

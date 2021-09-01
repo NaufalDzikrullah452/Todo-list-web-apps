@@ -44,4 +44,32 @@ class Performance extends CI_Controller {
         
         return;
     }
+
+    public function completed_each_week()
+    {
+        $data['completedEachWeek'] = $this->Task_model->getCompletedEachWeek($this->session->userdata('user_id'));
+
+        for ($i = 0; $i < count($data['completedEachWeek']); $i++){
+            $data['completedEachWeek'][$i] = (int) $data['completedEachWeek'][$i]->total;
+        }
+
+        header('Content-Type: application/json');
+        echo json_encode($data);
+        
+        return;
+    }
+
+    public function uncompleted_each_week()
+    {
+        $data['uncompletedEachWeek'] = $this->Task_model->getUncompletedEachWeek($this->session->userdata('user_id'));
+
+        for ($i = 0; $i < count($data['uncompletedEachWeek']); $i++){
+            $data['uncompletedEachWeek'][$i] = (int) $data['uncompletedEachWeek'][$i]->total;
+        }
+
+        header('Content-Type: application/json');
+        echo json_encode($data);
+        
+        return;
+    }
 }

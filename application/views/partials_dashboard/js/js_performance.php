@@ -8,6 +8,22 @@ function httpGet(theUrl)
     return xmlHttp.responseText;
 }
 
+function fillArray(arr)
+{
+  if (arr.length == 0){
+    return [0,0,0,0];
+  }
+
+  for(i = 0; i <= (4 - arr.length + 1); i++){
+    arr.push(0);
+  }
+
+  return arr;
+}
+
+var completeEachWeek = fillArray(JSON.parse(httpGet('<?php echo site_url('index.php/dashboard/performance/completed_each_week'); ?>')).completedEachWeek);
+var uncompleteEachWeek = fillArray(JSON.parse(httpGet('<?php echo site_url('index.php/dashboard/performance/uncompleted_each_week'); ?>')).uncompletedEachWeek);
+
 var categoryCount = JSON.parse(httpGet('<?php echo site_url('index.php/dashboard/performance/statistics'); ?>'));
 var totalTask = JSON.parse(httpGet('<?php echo site_url('index.php/dashboard/performance/total_task'); ?>')).totalCount[0].total;
 
@@ -64,10 +80,10 @@ var totalTask = JSON.parse(httpGet('<?php echo site_url('index.php/dashboard/per
   },
   series: [{
     name: 'Complete',
-    data: [3, 4, 3, 5]
+    data: completeEachWeek.reverse()
   }, {
     name: 'Uncomplete',
-    data: [1, 3, 4, 3]
+    data: uncompleteEachWeek.reverse()
   }]
 });
 } 
