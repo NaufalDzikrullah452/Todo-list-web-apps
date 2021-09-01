@@ -25,6 +25,27 @@ class Task_model extends CI_Model
         return $this->db->get_where($this->_table, array('task_user_id' => $user_id, 'task_priority_status' => 1))->result();
     }
 
+    public function getTotalByUserId($user_id)
+    {
+        return $this->db->query("
+        SELECT COUNT(*) as total
+        FROM tbl_task
+        WHERE task_user_id = {$user_id}
+        ")->result(); 
+    }
+
+    public function getEachTotalByKategori($user_id)
+    {
+        return $this->db->query("
+        SELECT category_name, COUNT(*) as total 
+        FROM tbl_task
+        INNER JOIN tbl_category ON task_category_id = category_id
+        WHERE task_user_id = {$user_id}
+        GROUP BY category_name
+        ")->result();
+    }
+
+
     public function getById($id)
     {
         return $this->db->get_where($this->_table, array('task_id' => $id))->row();
@@ -36,21 +57,6 @@ class Task_model extends CI_Model
         $var = $data['task_due_date'];
         $date = str_replace('/', '-', $var);
         $data['task_due_date'] = date('Y-m-d', strtotime($date));
-
-        // $post = $this->input->post();
-
-        // $this->task_name = $post['task_name'];
-        // $this->task_description = $post['task_description'];
-        // $this->task_status = $post['task_status'];
-        // $this->task_due_date = $post['task_due_date'];
-        // $this->task_time = $post['task_time'];
-        // $this->task_priority_status = $post['task_priority_status'];
-
-        // $this->task_user_id = $post['task_user_id'];
-        // $this->task_category_id = $post['task_category_id'];
-
-        // nyoba sebelum insert database
-        // return true;
 
         return $this->db->insert($this->_table, $data);
     }
@@ -76,25 +82,32 @@ class Task_model extends CI_Model
 
     public function update_status($id)
     {
-        $boolean = true;
         $data = $this->getById($id);
-        $this->task_name = $data->task_name;
-        $this->task_description = $data->task_description;
-        $this->task_due_date = $data->task_due_date;
-        $this->task_time = $data->task_time;
-        $this->task_priority_status = $data->task_priority_status;
+
+        $this->db->where('task_id', $id);
 
         if ($data->task_status != 'complete') {
-            $this->task_status = 'complete';
-            $boolean = true;
+            $this->db->update($this->_table, array('task_status' => 'complete'));
+            return true;
         } else {
-            $this->task_status = 'uncomplete';
-            $boolean = false;
+            $this->db->update($this->_table, array('task_status' => 'uncomplete'));
+            return false;
         }
+        // return true;
+    }
+    public function update_priority_status($id)
+    {
+        $data = $this->getById($id);
 
-        $this->db->update($this->_table, $this, array('task_id' => $id));
-        return $boolean;
+        $this->db->where('task_id', $id);
 
+        if ($data->task_priority_status != '1') {
+            $this->db->update($this->_table, array('task_priority_status' => '1'));
+            return true;
+        } else {
+            $this->db->update($this->_table, array('task_priority_status' => '0'));
+            return false;
+        }
         // return true;
     }
 

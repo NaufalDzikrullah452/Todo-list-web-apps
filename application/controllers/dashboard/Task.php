@@ -5,6 +5,8 @@ class Task extends CI_Controller {
 
 	public function index()
 	{
+        if ($this->session->userdata('user_email') == null) redirect('index.php/sign_in');
+        
         $data ['title'] = "Task";
 
         $this->load->view('partials_dashboard/header',$data);

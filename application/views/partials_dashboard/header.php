@@ -17,15 +17,9 @@
     <link href="<?= config_item('plugins') ?>bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet">
     <link href="<?= config_item('plugins') ?>timepicker/bootstrap-timepicker.min.css" rel="stylesheet">
     <link href="<?= config_item('plugins') ?>bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
-    <!-- Chartist -->
-    <link rel="stylesheet" href="<?= config_item('plugins') ?>chartist/css/chartist.min.css">
-    <link rel="stylesheet" href="<?= config_item('plugins') ?>chartist-plugin-tooltips/css/chartist-plugin-tooltip.css">
+    
     <!-- Custom Stylesheet -->
     <link href="<?= config_item('css_dashboard') ?>style.css" rel="stylesheet">
-    <!-- Toastr -->
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
-    <!-- Datatables -->
-    <link rel="stylesheet" href="//cdn.datatables.net/1.11.0/css/jquery.dataTables.min.css">
 
 </head>
 
@@ -56,7 +50,7 @@
         ***********************************-->
         <div class="nav-header">
             <div class="brand-logo">
-                <a href="<?= site_url('dashboard/today') ?>">
+                <a href="<?= site_url('index.php/dashboard/today') ?>">
                     <b class="logo-abbr"><img src="<?= config_item('images_dashboard') ?>logo.png" alt=""> </b>
                     <span class="logo-compact"><img src="<?= config_item('images_dashboard') ?>logo-text.png" alt=""></span>
                     <span class="brand-title">

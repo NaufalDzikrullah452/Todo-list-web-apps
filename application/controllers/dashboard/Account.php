@@ -5,6 +5,8 @@ class Account extends CI_Controller {
 
 	public function index()
 	{
+        if ($this->session->userdata('user_email') == null) redirect('index.php/sign_in');
+        
         $data ['title'] = "Account";
 
         $this->load->view('partials_dashboard/header',$data);
