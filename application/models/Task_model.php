@@ -25,6 +25,39 @@ class Task_model extends CI_Model
         return $this->db->get_where($this->_table, array('task_user_id' => $user_id, 'task_priority_status' => 1))->result();
     }
 
+    public function getAllUncompletedByUserId($user_id)
+    {
+        return $this->db->get_where($this->_table, array('task_user_id' => $user_id, 'task_status' => 'uncomplete'))->result();
+    }
+
+    public function getAllUncompletedCountByUserId($user_id)
+    {
+        return $this->db->query("
+        SELECT COUNT(*) as total
+        FROM tbl_task
+        WHERE task_user_id = {$user_id} AND task_status = 'uncomplete'
+        ")->result(); 
+    }
+
+    public function getAllCompletedByUserId($user_id)
+    {
+        return $this->db->get_where($this->_table, array('task_user_id' => $user_id, 'task_status' => 'complete'))->result();
+    }
+
+    public function getAllCompletedCountByUserId($user_id)
+    {
+        return $this->db->query("
+        SELECT COUNT(*) as total
+        FROM tbl_task
+        WHERE task_user_id = {$user_id} AND task_status = 'complete'
+        ")->result(); 
+    }
+
+    public function getAllByUserId($user_id)
+    {
+        return $this->db->get_where($this->_table, array('task_user_id' => $user_id))->result();
+    }
+
     public function getTotalByUserId($user_id)
     {
         return $this->db->query("

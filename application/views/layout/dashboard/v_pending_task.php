@@ -48,11 +48,11 @@
                                 <!-- Nav tabs -->
                                 <div class="default-tab">
                                     <ul class="nav nav-tabs mb-3" role="tablist">
-                                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="<?= site_url('index.php/dashboard/Task') ?>">All Task</a>
+                                        <li class="nav-item"><a class="nav-link" href="<?= site_url('index.php/dashboard/task') ?>">All Task</a>
                                         </li>
-                                        <li class="nav-item" class="active"><a class="nav-link active" data-toggle="tab" href="#pending">Pending</a>
+                                        <li class="nav-item" class="nav-link active"><a class="nav-link active" href="<?= site_url('index.php/dashboard/task/pending') ?>">Pending</a>
                                         </li>
-                                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="<?= site_url('index.php/dashboard/Task/complete') ?>">Complete</a>
+                                        <li class="nav-item"><a class="nav-link" href="<?= site_url('index.php/dashboard/task/complete') ?>">Complete</a>
                                         </li>
                                     </ul>
                                     <div class="tab-content">
@@ -60,7 +60,7 @@
                                             <div class="p-t-15">
                                     <?php
 
-                                    foreach ($task as $data_task) :
+                                    foreach ($pendingTasks as $data_task) :
                                         $style = '';
                                         $checked = '';
                                         $priority = '';
@@ -172,7 +172,7 @@
 
                         <!-- Modal Edit-->
                         <?php
-                        foreach ($task as $data_task) :
+                        foreach ($pendingTasks as $data_task) :
                             /* y/m/d to y-m-d */
                             $var = $data_task->task_due_date;
                             $str_rep = str_replace('-', '/', $var);
@@ -242,7 +242,7 @@
                         <?php endforeach; ?>
                         <!-- Modal Edit-->
                         <!-- Modal Delete-->
-                        <?php foreach ($task as $data_task) : ?>
+                        <?php foreach ($pendingTasks as $data_task) : ?>
                             <form action="<?= base_url() . 'index.php/dashboard/Task/delete' ?>" method="POST">
                                 <div class="modal fade" id="modalDelete<?= $data_task->task_id; ?>">
                                     <div class="modal-dialog modal-dialog-centered" role="document">
