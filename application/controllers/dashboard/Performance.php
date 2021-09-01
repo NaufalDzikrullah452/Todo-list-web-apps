@@ -10,6 +10,7 @@ class Performance extends CI_Controller {
         $this->load->view('partials_dashboard/header',$data);
         $this->load->view('partials_dashboard/sidebar');
 		$this->load->view('layout/dashboard/v_performance');
-        $this->load->view('partials_dashboard/footer');
+        $this->load->view('partials_dashboard/footer_performance');
+        $this->load->view('partials_dashboard/js/js_performance');
 	}
 }
