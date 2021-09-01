@@ -39,9 +39,10 @@
         <!-- Date range Plugin JavaScript -->
         <script src="<?= config_item('plugins') ?>timepicker/bootstrap-timepicker.min.js"></script>
         <script src="<?= config_item('plugins') ?>bootstrap-daterangepicker/daterangepicker.js"></script>
+
         <!-- js -->
-        <script src="<?= config_item('js_dashboard') ?>dashboard/dashboard-1.js"></script>
         <script src="<?= config_item('js_dashboard') ?>plugins-init/form-pickers-init.js"></script>
+        
 
         </body>
 

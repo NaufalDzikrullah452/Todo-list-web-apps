@@ -1,15 +1,15 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Account extends CI_Controller {
+class Profile extends CI_Controller {
 
 	public function index()
 	{
-        $data ['title'] = "Account";
+        $data ['title'] = "Profile";
 
         $this->load->view('partials_dashboard/header',$data);
         $this->load->view('partials_dashboard/sidebar');
-		$this->load->view('layout/dashboard/v_account');
+		$this->load->view('layout/dashboard/v_profile');
         $this->load->view('partials_dashboard/footer');
 	}
 }
