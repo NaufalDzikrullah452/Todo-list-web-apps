@@ -22,7 +22,7 @@ class Task_model extends CI_Model
 
     public function getAllPrioritized($user_id)
     {
-        return $this->db->get_where($this->_table, array('task_user_id' => $user_id, 'task_priority_status' => 1))->result();
+        return $this->db->get_where($this->_table, array('task_user_id' => $user_id, 'task_priority_status' => '1'))->result();
     }
 
     public function getAllUncompletedByUserId($user_id)
@@ -103,26 +103,6 @@ class Task_model extends CI_Model
     }
 
 
-    public function getById($id)
-    {
-        return $this->db->get_where($this->_table, array('task_id' => $id))->row();
-    }
-
-    public function getPendingTask($id)
-    {
-        $this->db->where('task_user_id', $id);
-        $this->db->where('task_status', 'uncomplete');
-        return $this->getAll();
-    }
-
-    public function getCompletedTask($id)
-    {
-        $this->db->where('task_user_id', $id);
-        $this->db->where('task_status', 'complete');
-        return $this->getAll();
-    }
-
-
     public function save($data)
     {
         // change YYYY/MM/DD to YYYY-MM-DD
@@ -151,7 +131,7 @@ class Task_model extends CI_Model
 
     public function update_status($id)
     {
-        $data = $this->getById($id);
+        $data = $this->getAllByUserId($id);
 
         $this->db->where('task_id', $id);
 
@@ -166,7 +146,7 @@ class Task_model extends CI_Model
     }
     public function update_priority_status($id)
     {
-        $data = $this->getById($id);
+        $data = $this->getAllByUserId($id);
 
         $this->db->where('task_id', $id);
 

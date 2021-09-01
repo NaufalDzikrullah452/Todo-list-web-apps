@@ -60,7 +60,6 @@
                                             <div class="tab-pane fade show active" id="all" role="tabpanel">
                                                 <div class="p-t-15">
                                                     <?php
-
                                                     foreach ($allTasks as $data_task) :
                                                         $style = '';
                                                         $checked = '';
