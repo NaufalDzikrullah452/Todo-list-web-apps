@@ -19,12 +19,12 @@ class Today extends CI_Controller
     public function index()
     {
         if ($this->session->userdata('user_email') == null) redirect('index.php/sign_in');
-        
+
         $data['user'] = $this->db->get_where('tbl_user', ['user_email' => $this->session->userdata('user_email')])->row_array();
         // echo 'Selamat Datang ' . $data['user']['user_email'];
         $data['title'] = "Today";
 
-        $data['task'] = $this->task_model->getTaskByIdToday($this->session->userdata('user_id'));
+        $data['task'] = $this->task_model->getAllByUserId($this->session->userdata('user_id'));
 
         $this->load->view('partials_dashboard/header', $data);
         $this->load->view('partials_dashboard/sidebar');

@@ -45,18 +45,6 @@
                                     </div>
                                     <hr>
 
-<<<<<<< Updated upstream
-                                <!-- Nav tabs -->
-                                <div class="default-tab">
-                                    <ul class="nav nav-tabs mb-3" role="tablist">
-                                        <li class="nav-item" class="nav-link active"><a class="nav-link active" href="<?= site_url('index.php/dashboard/task') ?>">All Task</a>
-                                        </li>
-                                        <li class="nav-item"><a class="nav-link" href="<?= site_url('index.php/dashboard/task/pending') ?>">Pending</a>
-                                        </li>
-                                        <li class="nav-item"><a class="nav-link" href="<?= site_url('index.php/dashboard/task/complete') ?>">Complete</a>
-                                        </li>
-                                    </ul>
-=======
                                     <!-- Nav tabs -->
                                     <div class="default-tab">
                                         <ul class="nav nav-tabs mb-3" role="tablist">
@@ -67,35 +55,13 @@
                                             <li class="nav-item"><a class="nav-link" data-toggle="tab" href="<?= site_url('index.php/dashboard/task/complete') ?>">Complete</a>
                                             </li>
                                         </ul>
->>>>>>> Stashed changes
 
                                         <div class="tab-content">
                                             <div class="tab-pane fade show active" id="all" role="tabpanel">
                                                 <div class="p-t-15">
                                                     <?php
 
-<<<<<<< Updated upstream
-                                    foreach ($allTasks as $data_task) :
-                                        $style = '';
-                                        $checked = '';
-                                        $priority = '';
-                                        if ($data_task->task_status == 'complete') {
-                                            $style = 'text-decoration: line-through';
-                                            $checked = 'checked';
-                                        }
-                                        if ($data_task->task_priority_status == '1') {
-                                            $priority = 'color: #FFB319';
-                                        }
-                                    ?>
-                                        <div class="email-list m-t-15">
-                                            <div class="message">
-                                                <a href="#">
-                                                    <div class="col-mail col-mail-1">
-                                                        <div class="email-checkbox">
-                                                            <input type="checkbox" class="chk" id="chk-<?= $data_task->task_id ?>" data-id="<?= $data_task->task_id ?>" <?= $checked ?>>
-                                                            <!-- <label class="toggle" for="chk2"></label> -->
-=======
-                                                    foreach ($task as $data_task) :
+                                                    foreach ($allTasks as $data_task) :
                                                         $style = '';
                                                         $checked = '';
                                                         $priority = '';
@@ -132,7 +98,6 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
->>>>>>> Stashed changes
                                                         </div>
                                                 </div>
                                             <?php endforeach; ?>
@@ -206,7 +171,7 @@
 
                         <!-- Modal Detail-->
                         <?php
-                        foreach ($task as $data_task) :
+                        foreach ($allTasks as $data_task) :
                             /* y/m/d to y-m-d */
                             $var = $data_task->task_due_date;
                             $str_rep = str_replace('-', '/', $var);

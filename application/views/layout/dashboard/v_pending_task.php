@@ -60,7 +60,7 @@
                                                 <div class="p-t-15">
                                                     <?php
 
-                                                    foreach ($pendingTask as $data_task) :
+                                                    foreach ($pendingTasks as $data_task) :
                                                         $style = '';
                                                         $checked = '';
                                                         $priority = '';
@@ -172,7 +172,7 @@
 
                         <!-- Modal Detail-->
                         <?php
-                        foreach ($task as $data_task) :
+                        foreach ($pendingTasks as $data_task) :
                             /* y/m/d to y-m-d */
                             $var = $data_task->task_due_date;
                             $str_rep = str_replace('-', '/', $var);

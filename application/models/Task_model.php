@@ -20,7 +20,6 @@ class Task_model extends CI_Model
         return $this->db->get($this->_table)->result();
     }
 
-<<<<<<< Updated upstream
     public function getAllPrioritized($user_id)
     {
         return $this->db->get_where($this->_table, array('task_user_id' => $user_id, 'task_priority_status' => 1))->result();
@@ -37,7 +36,7 @@ class Task_model extends CI_Model
         SELECT COUNT(*) as total
         FROM tbl_task
         WHERE task_user_id = {$user_id} AND task_status = 'uncomplete'
-        ")->result(); 
+        ")->result();
     }
 
     public function getAllCompletedByUserId($user_id)
@@ -51,7 +50,7 @@ class Task_model extends CI_Model
         SELECT COUNT(*) as total
         FROM tbl_task
         WHERE task_user_id = {$user_id} AND task_status = 'complete'
-        ")->result(); 
+        ")->result();
     }
 
     public function getAllByUserId($user_id)
@@ -65,7 +64,7 @@ class Task_model extends CI_Model
         SELECT COUNT(*) as total
         FROM tbl_task
         WHERE task_user_id = {$user_id}
-        ")->result(); 
+        ")->result();
     }
 
     public function getEachTotalByKategori($user_id)
@@ -104,23 +103,6 @@ class Task_model extends CI_Model
     }
 
 
-=======
-    public function getTaskById($id)
-    {
-        $this->db->where('task_user_id', $id);
-        return $this->db->get($this->_table)->result();
-    }
-
-    public function getTaskByIdToday($id)
-    {
-        $dt = new DateTime("now", new DateTimeZone('Asia/Jakarta'));
-        $today = $dt->format('y-m-d');
-        $this->db->where('task_user_id', $id);
-        $this->db->where('task_due_date', $today);
-        return $this->db->get($this->_table)->result();
-    }
-
->>>>>>> Stashed changes
     public function getById($id)
     {
         return $this->db->get_where($this->_table, array('task_id' => $id))->row();
