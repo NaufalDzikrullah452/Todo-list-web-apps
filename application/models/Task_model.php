@@ -45,9 +45,9 @@ class Task_model extends CI_Model
         // $this->task_category_id = $post['task_category_id'];
 
         // nyoba sebelum insert database
-        return true;
+        // return true;
 
-        // return $this->db->insert($this->_table, $data);
+        return $this->db->insert($this->_table, $data);
     }
 
     public function update($id)
