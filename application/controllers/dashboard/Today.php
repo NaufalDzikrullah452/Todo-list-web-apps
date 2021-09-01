@@ -30,8 +30,8 @@ class Today extends CI_Controller
         $this->load->view('partials_dashboard/sidebar');
         $this->load->view('layout/dashboard/v_today', $data);
         $this->load->view('partials_dashboard/footer');
-        $this->load->view('partials_js/js_checklist_task');
-        $this->load->view('partials_js/js_priority_task');
+        $this->load->view('partials_dashboard/js/js_checklist_task');
+        $this->load->view('partials_dashboard/js/js_priority_task');
     }
 
     public function save()

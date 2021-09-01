@@ -20,9 +20,14 @@
                                 <div class="card">
                                     <div class="card-body pb-0 d-flex justify-content-between">
                                         <div>
-                                            <h3 class="mb-1">Priority</h3>
+                                            <h3 class="mb-1">Priority </h3>
+                                            <p><?php
+                                                $dt = new DateTime("now", new DateTimeZone('Asia/Jakarta'));
+                                                $day = $dt->format('l');
+                                                echo substr($day, 0, 3) . ' ' . $dt->format('d') . ' ' . $dt->format('F');
+                                                ?></p>
                                             <a href="#" data-toggle="modal" data-target="#modalAdd">
-                                                <h6 class="mt-5 "><i class="icon-plus"></i> Add Task</h6>
+                                                <h4 class="m-0"><i class="icon-plus"></i> Add Task</h4>
                                             </a>
 
                                         </div>
@@ -51,15 +56,15 @@
                                     ?>
                                         <div class="email-list m-t-15 mb-3">
                                             <div class="message">
-                                                <a href="#">
-                                                    <div class="col-mail col-mail-1">
-                                                        <div class="email-checkbox">
-                                                            <input type="checkbox" class="chk" id="chk-<?= $data_task->task_id ?>" data-id="<?= $data_task->task_id ?>" <?= $checked ?>>
-                                                            <!-- <label class="toggle" for="chk2"></label> -->
-                                                        </div>
-                                                        <span class="star-toggle fa fa-star text-warning"></span>
+                                                <div class="col-mail col-mail-1">
+                                                    <div class="email-checkbox">
+                                                        <input type="checkbox" class="chk" id="chk-<?= $data_task->task_id ?>" data-id="<?= $data_task->task_id ?>" <?= $checked ?>>
+                                                        <!-- <label class="toggle" for="chk2"></label> -->
                                                     </div>
-                                                    <div class="col-mail col-mail-2">
+                                                    <span class="star-toggle fa fa-star text-warning"></span>
+                                                </div>
+                                                <a href="#" data-toggle="modal" data-target="#modalDetail<?= $data_task->task_id; ?>">
+                                                    <div class=" col-mail col-mail-2">
                                                         <div class="subject" style="<?= $style ?>" id="task_name_<?= $data_task->task_id ?>"><?= $data_task->task_name; ?> </div>
                                                 </a>
                                                 <div class="date">
@@ -110,7 +115,7 @@
                                                 <div class="col-md-6">
                                                     <label class="m-t-20">Set Reminder</label>
                                                     <div class="input-group clockpicker" data-placement="top" data-align="top" data-autoclose="true">
-                                                        <input type="text" class="form-control" value="13:14" name="task_time" id="task_time"> <span class="input-group-append"><span class="input-group-text"><i class="fa fa-clock-o"></i></span></span>
+                                                        <input type="text" class="form-control" placeholder="hh:mm" name="task_time" id="task_time"> <span class="input-group-append"><span class="input-group-text"><i class="fa fa-clock-o"></i></span></span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -126,20 +131,6 @@
                                                     <option value="6">Others</option>
                                                 </select>
                                             </div>
-                                            <form action="" method="POST" id="subtask">
-                                                <div class="input-group mb-3">
-                                                    <input type="text" class="form-control" placeholder="sub task">
-                                                    <div class="input-group-append">
-                                                        <button class="btn btn-dark" type="button">Add</button>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <div class="form-check form-check-inline">
-                                                        <label class="form-check-label">
-                                                            <input type="checkbox" class="form-check-input" value="">Sub task 1</label>
-                                                    </div>
-                                                </div>
-                                            </form>
                                         </form>
                                     </div>
                                     <div class="modal-footer">
@@ -174,7 +165,7 @@
                                                     <div class="col-md-6">
                                                         <label class="m-t-20">Set Date</label>
                                                         <div class="input-group">
-                                                            <input type="text" class="form-control" id="datepicker-autoclose" placeholder="mm/dd/yyyy" name="task_due_date"> <span class="input-group-append"><span class="input-group-text"><i class="mdi mdi-calendar-check"></i></span></span>
+                                                            <input type="text" class="form-control" id="datepicker-autoclose" placeholder="mm/dd/yyyy" name="task_due_date" value="<?= $data_task->task_due_date; ?>"> <span class="input-group-append"><span class="input-group-text"><i class="mdi mdi-calendar-check"></i></span></span>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
@@ -196,27 +187,6 @@
                                                         <option value="6" <?= $data_task->task_category_id == '6' ? ' selected ' : ''; ?>>Others</option>
                                                     </select>
                                                 </div>
-                                                <div class="input-group mb-3">
-                                                    <input type="text" class="form-control" placeholder="sub task">
-                                                    <div class="input-group-append">
-                                                        <button class="btn btn-dark" type="button">Add</button>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <div class="form-check form-check-inline">
-                                                        <label class="form-check-label">
-                                                            <input type="checkbox" class="form-check-input" value="">Sub task 1</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <label class="form-check-label">
-                                                            <input type="checkbox" class="form-check-input" value="">Sub task 2</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <label class="form-check-label">
-                                                            <input type="checkbox" class="form-check-input" value="">Sub task 3</label>
-                                                    </div>
-                                                </div>
-
                                             </div>
                                             <div class="modal-footer">
                                                 <input type="hidden" name="task_id" value="<?php echo $data_task->task_id; ?>">
@@ -231,6 +201,84 @@
                                 </div>
                             </form>
                         <?php endforeach; ?>
+                        <!-- Modal Add -->
+
+                        <!-- Modal Detail-->
+                        <?php
+                        foreach ($prioritizedTasks as $data_task) :
+                            /* y/m/d to y-m-d */
+                            $var = $data_task->task_due_date;
+                            $str_rep = str_replace('-', '/', $var);
+                            $date = date('Y-m-d', strtotime($str_rep));
+                            /* h:i:s to h:i */
+                            $var = $data_task->task_time;
+                            $time = date("H:i", strtotime($var));
+                        ?>
+                            <form action="<?= base_url() . 'index.php/dashboard/Today/edit' ?>" method="POST">
+                                <div class="modal fade" id="modalDetail<?= $data_task->task_id; ?>">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">Detail Task</h5>
+                                                <button type="button" class="close " data-dismiss="modal"><span>&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="form-group">
+                                                    <label>Title:</label>
+                                                    <input type="text" class="form-control form-control-sm input-default" placeholder="title task" name="task_name" value="<?= $data_task->task_name; ?>" readonly>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Description:</label>
+                                                    <textarea class="form-control h-80px" rows="5" placeholder="description" name="task_description" readonly><?= htmlspecialchars($data_task->task_description); ?></textarea>
+                                                </div>
+                                                <div class="row form-material">
+                                                    <div class="col-md-6">
+                                                        <label class="m-t-20">Date</label>
+                                                        <div class="input-group">
+                                                            <input type="text" class="form-control" id="datepicker-autoclose" placeholder="mm/dd/yyyy" name="task_due_date" value="<?= $date ?>" readonly> <span class="input-group-append"><span class="input-group-text"><i class="mdi mdi-calendar-check"></i></span></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label class="m-t-20">Reminder</label>
+                                                        <div class="input-group" data-placement="top" data-align="top" data-autoclose="true">
+                                                            <input type="text" class="form-control" name="task_time" value="<?= $time; ?>" readonly> <span class="input-group-append"><span class="input-group-text"><i class="fa fa-clock-o"></i></span></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Category:</label>
+                                                    <select class="form-control" id="sel1" name="task_category_id" disabled>
+                                                        <option value="">-- Choose category --</option>
+                                                        <option value="1" <?= $data_task->task_category_id == '1' ? ' selected ' : ''; ?>>Work</option>
+                                                        <option value="2" <?= $data_task->task_category_id == '2' ? ' selected ' : ''; ?>>Sport</option>
+                                                        <option value="3" <?= $data_task->task_category_id == '3' ? ' selected ' : ''; ?>>Study</option>
+                                                        <option value="4" <?= $data_task->task_category_id == '4' ? ' selected ' : ''; ?>>Rest</option>
+                                                        <option value="5" <?= $data_task->task_category_id == '5' ? ' selected ' : ''; ?>>Grocery</option>
+                                                        <option value="6" <?= $data_task->task_category_id == '6' ? ' selected ' : ''; ?>>Others</option>
+                                                    </select>
+                                                </div>
+                                                <label>Sub Task:</label>
+                                                <div class="input-group mb-3">
+                                                    <input type="text" class="form-control">
+                                                    <div class="input-group-append">
+                                                        <button class="btn btn-dark" type="button">Add Task</button>
+                                                    </div>
+                                                </div>
+                                                <div class="form-check mb-3">
+                                                    <label class="form-check-label">
+                                                        <input type="checkbox" class="form-check-input" value="">Option 1</label>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        <?php endforeach; ?>
+                        <!-- Modal detail -->
 
                         <!-- Modal Delete-->
                         <?php foreach ($prioritizedTasks as $data_task) : ?>
