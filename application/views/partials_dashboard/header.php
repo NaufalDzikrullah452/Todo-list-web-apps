@@ -98,7 +98,7 @@
                                 <div class="dropdown-content-body">
                                     <ul>
                                         <li>
-                                            <a href="<?= site_url('dashboard/account') ?>"><i class="icon-user"></i> <span>Profile</span></a>
+                                            <a href="<?= site_url('index.php/dashboard/profile') ?>"><i class="icon-user"></i> <span>Profile</span></a>
                                         </li>
                                         <li><a href="<?= base_url('index.php/sign_in/signout') ?>"><i class="icon-key"></i> <span>Logout</span></a></li>
                                     </ul>

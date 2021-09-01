@@ -21,8 +21,8 @@
                             <div class="card-body">
                                 <div class="text-center">
                                     <img alt="" class="rounded-circle mt-4" src="<?php echo base_url('assets/dashboard/images/users/5.jpg'); ?>">
-                                    <h4 class="card-widget__title text-dark mt-3">Username</h4>
-                                    <p class="text-muted">user@gmail.com</p>
+                                    <h4 class="card-widget__title text-dark mt-3"><?= $this->session->userdata('user_username')?></h4>
+                                    <p class="text-muted"><?= $this->session->userdata('user_email')?></p>
                                     <a class="btn gradient-4 btn-lg border-0 btn-rounded px-5" data-toggle="modal" data-target="#modalEdit" href="javascript:void()">Change</a>
                                 </div>
                             </div>
@@ -38,7 +38,7 @@
                             <div class="stat-widget-one">
                                 <div class="stat-content">
                                     <div class="stat-text">All Task</div>
-                                    <div class="stat-digit gradient-3-text">8500</div>
+                                    <div class="stat-digit gradient-3-text"><?= $allTasksCount[0]->total ? $allTasksCount[0]->total  : 0 ?></div>
                                 </div>
                             </div>
                         </div>
@@ -49,7 +49,7 @@
                             <div class="stat-widget-one">
                                 <div class="stat-content">
                                     <div class="stat-text">Pending</div>
-                                    <div class="stat-digit gradient-4-text">7800</div>
+                                    <div class="stat-digit gradient-4-text"><?= $pendingTasksCount[0]->total ? $pendingTasksCount[0]->total  : 0 ?></div>
                                 </div>
                             </div>
                         </div>
@@ -60,7 +60,7 @@
                             <div class="stat-widget-one">
                                 <div class="stat-content">
                                     <div class="stat-text">Complete</div>
-                                    <div class="stat-digit gradient-2-text"> 500</div>
+                                    <div class="stat-digit gradient-2-text"><?= $completedTasksCount[0]->total ? $completedTasksCount[0]->total  : 0 ?></div>
                                 </div>
                             </div>
                         </div>
