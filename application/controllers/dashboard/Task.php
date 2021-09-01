@@ -11,7 +11,27 @@ class Task extends CI_Controller {
 
         $this->load->view('partials_dashboard/header',$data);
         $this->load->view('partials_dashboard/sidebar');
-		$this->load->view('layout/dashboard/v_task');
+		$this->load->view('layout/dashboard/v_all_task');
+        $this->load->view('partials_dashboard/footer');
+	}
+
+    public function pending()
+	{
+        $data ['title'] = "Pending Task";
+
+        $this->load->view('partials_dashboard/header',$data);
+        $this->load->view('partials_dashboard/sidebar');
+		$this->load->view('layout/dashboard/v_pending_task');
+        $this->load->view('partials_dashboard/footer');
+	}
+
+    public function complete()
+	{
+        $data ['title'] = "Complete Task";
+
+        $this->load->view('partials_dashboard/header',$data);
+        $this->load->view('partials_dashboard/sidebar');
+		$this->load->view('layout/dashboard/v_complete_task');
         $this->load->view('partials_dashboard/footer');
 	}
 }
