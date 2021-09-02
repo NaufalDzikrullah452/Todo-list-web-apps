@@ -9,7 +9,7 @@ class Priority extends CI_Controller
         parent::__construct();
         $this->load->helper(array('form', 'url'));
         $this->load->library(array('form_validation'));
-        $this->load->model(array('Task_model', 'Subtask_model'));
+        $this->load->model(array('Task_model', 'Subtask_model', 'User_model'));
         $this->load->model('task_model');
         $this->load->model('subtask_model');
     }
@@ -19,6 +19,7 @@ class Priority extends CI_Controller
         if ($this->session->userdata('user_email') == null) redirect('index.php/sign_in');
 
         $data['title'] = "Priority";
+        $data['user'] = $this->User_model->getById($this->session->userdata('user_id'));
         $data['prioritizedTasks'] = $this->Task_model->getAllPrioritized($this->session->userdata('user_id'));
 
         // get subtask each with id

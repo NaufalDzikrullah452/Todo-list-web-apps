@@ -82,7 +82,11 @@
                         <li class="icons dropdown">
                             <div class="user-img c-pointer position-relative" data-toggle="dropdown">
                                 <span class="activity active"></span>
-                                <img src="<?php echo base_url('assets/dashboard/images/users/user.png'); ?>" height="40" width="40" alt="">
+                                <?php if($user->user_picture != "" && $user->user_picture != null) : ?>
+                                    <img src="<?php echo base_url('./uploads/' . $user->user_picture) ?>" height="40" width="40" alt="">
+                                <?php else: ?>
+                                    <img src="<?php echo base_url('assets/dashboard/images/users/user.png'); ?>" height="40" width="40" alt="">
+                                <?php endif;?>
                             </div>
                             <div class="drop-down dropdown-profile animated fadeIn dropdown-menu">
                                 <div class="dropdown-content-body">

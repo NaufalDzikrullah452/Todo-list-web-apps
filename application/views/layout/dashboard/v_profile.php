@@ -34,7 +34,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="text-center">
-                                    <?php if($user->user_picture != "") : ?>
+                                    <?php if($user->user_picture != "" && $user->user_picture != null) : ?>
                                         <img src="<?= base_url('./uploads/' . $user->user_picture) ?>" alt="profile picture" class="rounded-circle mt-4" width="128px" height="128px"/>
                                     <?php else: ?>
                                         <img alt="" class="rounded-circle mt-4" src="<?php echo base_url('assets/dashboard/images/users/user.png'); ?>" width="128px" height="128px">
