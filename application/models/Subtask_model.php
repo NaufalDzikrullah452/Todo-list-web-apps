@@ -6,7 +6,7 @@ class Subtask_model extends CI_Model
 
     public $subtask_name;
     public $subtask_status;
-    
+
     public $subtask_parent_id;
 
     public function getAll()
@@ -19,30 +19,51 @@ class Subtask_model extends CI_Model
         return $this->db->get_where($this->_table, array('subtask_id' => $id))->row();
     }
 
-    public function save()
+    public function getByParentId($id)
     {
-        $post = $this->input->post();
-
-        $this->subtask_name = $post['subtask_name'];
-        $this->subtask_status = $post['subtask_status'];
-        $this->subtask_parent_id = $post['subtask_parent_id'];
-
-        return $this->db->insert($this->_table, $this);
+        return $this->db->get_where($this->_table, array('subtask_parent_id' => $id))->result();
     }
 
-    public function update($id)
+    public function getLastById()
     {
-        $post = $this->input->post();
+        $last_id = $this->db->insert_id();
+        return $this->db->get_where($this->_table, array('subtask_id' => $last_id))->row();
+    }
 
-        $this->subtask_name = $post['subtask_name'];
-        $this->subtask_status = $post['subtask_status'];
-        $this->subtask_parent_id = $post['subtask_parent_id'];
+    public function save($data)
+    {
+        // return true;
+        return $this->db->insert($this->_table, $data);
+    }
 
-        return $this->db->update($this->_table, $this, array('subtask_id', $id));
+    public function update($id, $task_name)
+    {
+        $this->db->where('subtask_id', $id);
+        return $this->db->update($this->_table, array('subtask_name' => $task_name));
     }
 
     public function delete($id)
     {
-        return $this->db->delete($this->_table, array('subtask_id', $id));
+        return $this->db->delete($this->_table, array('subtask_id' => $id));
+    }
+
+    public function update_status($id)
+    {
+        $data = $this->getById($id);
+
+        $this->db->where('subtask_id', $id);
+
+        if ($data->subtask_status != 'complete') {
+            $this->db->update($this->_table, array('subtask_status' => 'complete'));
+            return true;
+        } else {
+            $this->db->update($this->_table, array('subtask_status' => 'uncomplete'));
+            return false;
+        }
+        // return true;
+    }
+    public function deleteByParent($id)
+    {
+        return $this->db->delete($this->_table, array('subtask_parent_id' => $id));
     }
 }
