@@ -19,10 +19,10 @@ class Priority extends CI_Controller
         if ($this->session->userdata('user_email') == null) redirect('index.php/sign_in');
 
         $data['title'] = "Priority";
-        $data['prioritizedTasks'] = $this->Task_model->getAllPrioritized($this->session->userdata('user_id'));
+        $data['task'] = $this->Task_model->getAllPrioritized($this->session->userdata('user_id'));
 
         // get subtask each with id
-        foreach ($data['prioritizedTasks'] as $task) {
+        foreach ($data['task'] as $task) {
             $task->subtask = $this->subtask_model->getByParentId($task->task_id);
         }
         $this->load->view('partials_dashboard/header', $data);
@@ -32,6 +32,7 @@ class Priority extends CI_Controller
         $this->load->view('partials_dashboard/js/js_checklist_task');
         $this->load->view('partials_dashboard/js/js_priority_task');
         $this->load->view('partials_dashboard/js/js_checklist_subtask');
+        $this->load->view('partials_dashboard/js/js_notification');
     }
 
     public function save()

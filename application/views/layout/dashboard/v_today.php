@@ -104,17 +104,17 @@
                                                         <div class="message">
                                                             <div class="col-mail col-mail-2">
                                                                 <div class="email-checkbox">
-                                                                    
+
                                                                     <!-- <label class="toggle" for="chk2"></label> -->
                                                                 </div>
                                                             </div>
-                                                            <div class=" col-mail col-mail-2" >
+                                                            <div class=" col-mail col-mail-2">
                                                                 <div class="subject" style="<?= $style_subtask ?>" id="subtask_name_<?= $sub_task->subtask_id ?>">
-                                                                <input  style="margin-left: 10px;" type="checkbox" class="chk-sub" id="chk-sub-<?= $sub_task->subtask_id ?>" data-id="<?= $sub_task->subtask_id ?>" <?= $checked_subtask ?> >
-                                                                    <a href="#"  style="margin-left: 15px; font-size: 12px;" data-toggle="modal" data-target="#modalEditSub<?= $sub_task->subtask_id; ?>">
+                                                                    <input style="margin-left: 10px;" type="checkbox" class="chk-sub" id="chk-sub-<?= $sub_task->subtask_id ?>" data-id="<?= $sub_task->subtask_id ?>" <?= $checked_subtask ?>>
+                                                                    <a href="#" style="margin-left: 15px; font-size: 12px;" data-toggle="modal" data-target="#modalEditSub<?= $sub_task->subtask_id; ?>">
                                                                         <?= $sub_task->subtask_name; ?>
                                                                     </a>
-                                                                    
+
                                                                 </div>
                                                                 <div class="date">
                                                                     <div class="dropdown custom-dropdown">

@@ -20,10 +20,10 @@ class Task extends CI_Controller
 
         $data['title'] = "Task";
 
-        $data['allTasks'] = $this->Task_model->getAllByUserId($this->session->userdata('user_id'));
+        $data['task'] = $this->Task_model->getAllByUserId($this->session->userdata('user_id'));
 
         // get subtask each with id
-        foreach ($data['allTasks'] as $task) {
+        foreach ($data['task'] as $task) {
             $task->subtask = $this->subtask_model->getByParentId($task->task_id);
         }
 
@@ -34,16 +34,17 @@ class Task extends CI_Controller
         $this->load->view('partials_dashboard/js/js_checklist_task');
         $this->load->view('partials_dashboard/js/js_priority_task');
         $this->load->view('partials_dashboard/js/js_checklist_subtask');
+        $this->load->view('partials_dashboard/js/js_notification');
     }
 
     public function pending()
     {
         $data['title'] = "Pending Task";
 
-        $data['pendingTasks'] = $this->Task_model->getAllUncompletedByUserId($this->session->userdata('user_id'));
+        $data['task'] = $this->Task_model->getAllUncompletedByUserId($this->session->userdata('user_id'));
 
         // get subtask each with id
-        foreach ($data['pendingTasks'] as $task) {
+        foreach ($data['task'] as $task) {
             $task->subtask = $this->subtask_model->getByParentId($task->task_id);
         }
         $this->load->view('partials_dashboard/header', $data);
@@ -53,16 +54,17 @@ class Task extends CI_Controller
         $this->load->view('partials_dashboard/js/js_checklist_task');
         $this->load->view('partials_dashboard/js/js_priority_task');
         $this->load->view('partials_dashboard/js/js_checklist_subtask');
+        $this->load->view('partials_dashboard/js/js_notification');
     }
 
     public function complete()
     {
         $data['title'] = "Complete Task";
 
-        $data['completedTasks'] = $this->Task_model->getAllCompletedByUserId($this->session->userdata('user_id'));
+        $data['task'] = $this->Task_model->getAllCompletedByUserId($this->session->userdata('user_id'));
 
         // get subtask each with id
-        foreach ($data['completedTasks'] as $task) {
+        foreach ($data['task'] as $task) {
             $task->subtask = $this->subtask_model->getByParentId($task->task_id);
         }
         $this->load->view('partials_dashboard/header', $data);
@@ -72,6 +74,7 @@ class Task extends CI_Controller
         $this->load->view('partials_dashboard/js/js_checklist_task');
         $this->load->view('partials_dashboard/js/js_priority_task');
         $this->load->view('partials_dashboard/js/js_checklist_subtask');
+        $this->load->view('partials_dashboard/js/js_notification');
     }
 
     public function save()

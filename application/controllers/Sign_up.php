@@ -24,7 +24,7 @@ class Sign_up extends CI_Controller
 			$this->load->view('layout/v_sign_up');
 		} else {
 			$data = [
-				'user_picture' => 'default.jpg',
+				'user_picture' => '',
 				'user_username' => htmlspecialchars($this->input->post('username', true)),
 				'user_email' => htmlspecialchars($this->input->post('email', true)),
 				'user_password' => md5($this->input->post('pass1')),

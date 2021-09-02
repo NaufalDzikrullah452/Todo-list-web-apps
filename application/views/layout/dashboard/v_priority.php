@@ -46,7 +46,7 @@
                                     </div>
                                     <hr>
                                     <?php
-                                    foreach ($prioritizedTasks as $data_task) :
+                                    foreach ($task as $data_task) :
                                         $style = '';
                                         $checked = '';
                                         $priority = '';
@@ -99,31 +99,31 @@
                                         ?>
 
                                             <li>
-                                                    <div class="email-list m-t-15">
-                                                        <div class="message">
-                                                            <div class="col-mail col-mail-2">
-                                                                <div class="email-checkbox">
-                                                                    
-                                                                    <!-- <label class="toggle" for="chk2"></label> -->
-                                                                </div>
+                                                <div class="email-list m-t-15">
+                                                    <div class="message">
+                                                        <div class="col-mail col-mail-2">
+                                                            <div class="email-checkbox">
+
+                                                                <!-- <label class="toggle" for="chk2"></label> -->
                                                             </div>
-                                                            <div class=" col-mail col-mail-2" >
-                                                                <div class="subject" style="<?= $style_subtask ?>" id="subtask_name_<?= $sub_task->subtask_id ?>">
-                                                                <input  style="margin-left: 10px;" type="checkbox" class="chk-sub" id="chk-sub-<?= $sub_task->subtask_id ?>" data-id="<?= $sub_task->subtask_id ?>" <?= $checked_subtask ?> >
-                                                                    <a href="#"  style="margin-left: 15px; font-size: 12px;" data-toggle="modal" data-target="#modalEditSub<?= $sub_task->subtask_id; ?>">
-                                                                        <?= $sub_task->subtask_name; ?>
-                                                                    </a>
-                                                                    
-                                                                </div>
-                                                                <div class="date">
-                                                                    <div class="dropdown custom-dropdown">
-                                                                        <input type="hidden" name="task_id" value="<?php echo $sub_task->subtask_id; ?>">
-                                                                        <a style="margin-left: 15px;" href="javascript:void(0);" data-toggle="modal" data-target="#modalDeleteSub<?= $sub_task->subtask_id; ?>"><i class="ti-trash"></i></a>
-                                                                    </div>
+                                                        </div>
+                                                        <div class=" col-mail col-mail-2">
+                                                            <div class="subject" style="<?= $style_subtask ?>" id="subtask_name_<?= $sub_task->subtask_id ?>">
+                                                                <input style="margin-left: 10px;" type="checkbox" class="chk-sub" id="chk-sub-<?= $sub_task->subtask_id ?>" data-id="<?= $sub_task->subtask_id ?>" <?= $checked_subtask ?>>
+                                                                <a href="#" style="margin-left: 15px; font-size: 12px;" data-toggle="modal" data-target="#modalEditSub<?= $sub_task->subtask_id; ?>">
+                                                                    <?= $sub_task->subtask_name; ?>
+                                                                </a>
+
+                                                            </div>
+                                                            <div class="date">
+                                                                <div class="dropdown custom-dropdown">
+                                                                    <input type="hidden" name="task_id" value="<?php echo $sub_task->subtask_id; ?>">
+                                                                    <a style="margin-left: 15px;" href="javascript:void(0);" data-toggle="modal" data-target="#modalDeleteSub<?= $sub_task->subtask_id; ?>"><i class="ti-trash"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                </li>
+                                                    </div>
+                                            </li>
                                         <?php endforeach; ?>
                                         <!-- subtask -->
                                     <?php endforeach; ?>
@@ -190,7 +190,7 @@
 
                         <!-- Modal Edit-->
                         <?php
-                        foreach ($prioritizedTasks as $data_task) :
+                        foreach ($task as $data_task) :
                             /* y/m/d to y-m-d */
                             $var = $data_task->task_due_date;
                             $date = date('m/d/Y', strtotime($var));
@@ -259,7 +259,7 @@
                         <!-- Modal Add -->
 
                         <!-- Modal Delete-->
-                        <?php foreach ($prioritizedTasks as $data_task) : ?>
+                        <?php foreach ($task as $data_task) : ?>
                             <form action="<?= base_url() . 'index.php/dashboard/Priority/delete' ?>" method="POST">
                                 <div class="modal fade" id="modalDelete<?= $data_task->task_id; ?>">
                                     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -288,7 +288,7 @@
 
                         <!-- Modal Add subtask-->
                         <?php
-                        foreach ($prioritizedTasks as $data_task) :
+                        foreach ($task as $data_task) :
                         ?>
                             <form action="<?= base_url() . 'index.php/dashboard/priority/save_subtask' ?>" method="POST">
                                 <div class="modal fade" id="modalAddSub<?= $data_task->task_id; ?>">
@@ -320,7 +320,7 @@
 
                         <!-- Modal Edit subtask-->
                         <?php
-                        foreach ($prioritizedTasks as $data_task) :
+                        foreach ($task as $data_task) :
                             foreach ($data_task->subtask as $sub_task) :
                         ?>
                                 <form action="<?= base_url() . 'index.php/dashboard/priority/edit_subtask' ?>" method="POST">
@@ -356,7 +356,7 @@
 
                         <!-- Modal Delete subtask-->
                         <?php
-                        foreach ($prioritizedTasks as $data_task) :
+                        foreach ($task as $data_task) :
                             foreach ($data_task->subtask as $sub_task) :
                         ?>
                                 <form action="<?= base_url() . 'index.php/dashboard/priority/delete_subtask' ?>" method="POST">
