@@ -37,7 +37,7 @@
                                     <?php if($user->user_picture != "") : ?>
                                         <img src="<?= base_url('./uploads/' . $user->user_picture) ?>" alt="profile picture" class="rounded-circle mt-4" width="128px" height="128px"/>
                                     <?php else: ?>
-                                        <img alt="" class="rounded-circle mt-4" src="<?php echo base_url('assets/dashboard/images/users/5.jpg'); ?>">
+                                        <img alt="" class="rounded-circle mt-4" src="<?php echo base_url('assets/dashboard/images/users/user.png'); ?>" width="128px" height="128px">
                                     <?php endif;?>
                                     <h4 class="card-widget__title text-dark mt-3"><?= $user->user_username ?></h4>
                                     <p class="text-muted"><?= $user->user_email ?></p>
