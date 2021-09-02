@@ -57,6 +57,12 @@ class Task_model extends CI_Model
     {
         return $this->db->get_where($this->_table, array('task_user_id' => $user_id))->result();
     }
+    public function getAllByUserIdToday($user_id, $today)
+    {
+
+        $this->db->where('task_due_date', $today);
+        return $this->db->get_where($this->_table, array('task_user_id' => $user_id))->result();
+    }
     public function getTaskById($id)
     {
         return $this->db->get_where($this->_table, array('task_id' => $id))->row();
