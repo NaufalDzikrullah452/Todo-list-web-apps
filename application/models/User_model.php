@@ -71,15 +71,9 @@ class User_model extends CI_Model
 
         $this->load->library('upload', $config);
 
-        var_dump("here");
-
         if ($this->upload->do_upload("filefoto")) {
-            var_dump("please be here");
             return $this->upload->data("file_name");
         }
-
-        var_dump("whyhere");
-        die();
 
         return NULL;
     }
