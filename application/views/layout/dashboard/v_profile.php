@@ -103,10 +103,10 @@
                                                             <input type="file" name="filefoto" id="filefoto" accept="image/*">
                                                         </div>
                                                         <div class="form-group">
-                                                            <input type="text" name="nama" class="form-control" placeholder="Username" required value="<?= $this->session->userdata('user_username')?>">
+                                                            <input type="text" name="nama" class="form-control" placeholder="Username" required value="<?= $user->user_username?>">
                                                         </div>
                                                         <div class="form-group">
-                                                            <input type="email" name="email" class="form-control" placeholder="Email" required value="<?= $this->session->userdata('user_email')?>">
+                                                            <input type="email" name="email" class="form-control" placeholder="Email" required value="<?= $user->user_email ?>">
                                                         </div>
                                                         <div class="form-group">
                                                             <input type="password" name="password" id="password" class="form-control" placeholder="Password" onchange='check_pass();'>
