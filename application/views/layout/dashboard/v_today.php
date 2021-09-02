@@ -307,7 +307,7 @@
                                                 <div class="modal-body">
                                                     <div class="form-group">
                                                         <label>Subtask Name:</label>
-                                                        <input type="text" class="form-control input-default" placeholder="subtask" name="sub_task_name" value="<?= $sub_task->subtask_name; ?>">
+                                                        <input type="text" class="form-control input-default" placeholder="subtask" name="sub_task_name">
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
