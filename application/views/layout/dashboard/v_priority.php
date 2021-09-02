@@ -99,7 +99,7 @@
                                         <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
                                         </button>
                                     </div>
-                                    <form action="<?= base_url('index.php/dashboard/today/save') ?>" method="POST" id="form">
+                                    <form action="<?= base_url('index.php/dashboard/Priority/save') ?>" method="POST" id="form">
                                         <div class="modal-body">
                                             <div class="form-group">
                                                 <label>Title:</label>
@@ -127,9 +127,9 @@
                                                 <label>Category:</label>
                                                 <select class="form-control" id="sel1" name="task_category_id" required>
                                                     <option value="">-- Choose category --</option>
-                                                    <option value="1">Work</option>
-                                                    <option value="2">Sport</option>
-                                                    <option value="3">Study</option>
+                                                    <option value="1">Study</option>
+                                                    <option value="2">Work</option>
+                                                    <option value="3">Sport</option>
                                                     <option value="4">Rest</option>
                                                     <option value="5">Grocery</option>
                                                     <option value="6">Others</option>
@@ -148,7 +148,7 @@
 
                         <!-- Modal Edit-->
                         <?php foreach ($prioritizedTasks as $data_task) : ?>
-                            <form action="<?= base_url() . 'index.php/dashboard/Today/edit' ?>" method="POST">
+                            <form action="<?= base_url() . 'index.php/dashboard/Priority/edit' ?>" method="POST">
                                 <div class="modal fade" id="modalEdit<?= $data_task->task_id; ?>">
                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
@@ -184,9 +184,9 @@
                                                     <label>Category:</label>
                                                     <select class="form-control" id="sel1" name="task_category_id">
                                                         <option value="">-- Choose category --</option>
-                                                        <option value="1" <?= $data_task->task_category_id == '1' ? ' selected ' : ''; ?>>Work</option>
-                                                        <option value="2" <?= $data_task->task_category_id == '2' ? ' selected ' : ''; ?>>Sport</option>
-                                                        <option value="3" <?= $data_task->task_category_id == '3' ? ' selected ' : ''; ?>>Study</option>
+                                                        <option value="1" <?= $data_task->task_category_id == '1' ? ' selected ' : ''; ?>>Study</option>
+                                                        <option value="2" <?= $data_task->task_category_id == '2' ? ' selected ' : ''; ?>>Work</option>
+                                                        <option value="3" <?= $data_task->task_category_id == '3' ? ' selected ' : ''; ?>>Sport</option>
                                                         <option value="4" <?= $data_task->task_category_id == '4' ? ' selected ' : ''; ?>>Rest</option>
                                                         <option value="5" <?= $data_task->task_category_id == '5' ? ' selected ' : ''; ?>>Grocery</option>
                                                         <option value="6" <?= $data_task->task_category_id == '6' ? ' selected ' : ''; ?>>Others</option>
@@ -219,7 +219,7 @@
                             $var = $data_task->task_time;
                             $time = date("H:i", strtotime($var));
                         ?>
-                            <form action="<?= base_url() . 'index.php/dashboard/Today/edit' ?>" method="POST">
+                            <form action="<?= base_url() . 'index.php/dashboard/Priority/edit' ?>" method="POST">
                                 <div class="modal fade" id="modalDetail<?= $data_task->task_id; ?>">
                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
@@ -255,9 +255,9 @@
                                                     <label>Category:</label>
                                                     <select class="form-control" id="sel1" name="task_category_id" disabled>
                                                         <option value="">-- Choose category --</option>
-                                                        <option value="1" <?= $data_task->task_category_id == '1' ? ' selected ' : ''; ?>>Work</option>
-                                                        <option value="2" <?= $data_task->task_category_id == '2' ? ' selected ' : ''; ?>>Sport</option>
-                                                        <option value="3" <?= $data_task->task_category_id == '3' ? ' selected ' : ''; ?>>Study</option>
+                                                        <option value="1" <?= $data_task->task_category_id == '1' ? ' selected ' : ''; ?>>Study</option>
+                                                        <option value="2" <?= $data_task->task_category_id == '2' ? ' selected ' : ''; ?>>Work</option>
+                                                        <option value="3" <?= $data_task->task_category_id == '3' ? ' selected ' : ''; ?>>Sport</option>
                                                         <option value="4" <?= $data_task->task_category_id == '4' ? ' selected ' : ''; ?>>Rest</option>
                                                         <option value="5" <?= $data_task->task_category_id == '5' ? ' selected ' : ''; ?>>Grocery</option>
                                                         <option value="6" <?= $data_task->task_category_id == '6' ? ' selected ' : ''; ?>>Others</option>
@@ -287,7 +287,7 @@
 
                         <!-- Modal Delete-->
                         <?php foreach ($prioritizedTasks as $data_task) : ?>
-                            <form action="<?= base_url() . 'index.php/dashboard/Today/delete' ?>" method="POST">
+                            <form action="<?= base_url() . 'index.php/dashboard/Priority/delete' ?>" method="POST">
                                 <div class="modal fade" id="modalDelete<?= $data_task->task_id; ?>">
                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">

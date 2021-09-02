@@ -131,9 +131,9 @@
                                                 <label>Category:</label>
                                                 <select class="form-control" id="sel1" name="task_category_id" required>
                                                     <option value="">-- Choose category --</option>
-                                                    <option value="1">Work</option>
-                                                    <option value="2">Sport</option>
-                                                    <option value="3">Study</option>
+                                                    <option value="1">Study</option>
+                                                    <option value="2">Work</option>
+                                                    <option value="3">Sport</option>
                                                     <option value="4">Rest</option>
                                                     <option value="5">Grocery</option>
                                                     <option value="6">Others</option>
@@ -197,9 +197,9 @@
                                                     <label>Category:</label>
                                                     <select class="form-control" id="sel1" name="task_category_id" disabled>
                                                         <option value="">-- Choose category --</option>
-                                                        <option value="1" <?= $data_task->task_category_id == '1' ? ' selected ' : ''; ?>>Work</option>
-                                                        <option value="2" <?= $data_task->task_category_id == '2' ? ' selected ' : ''; ?>>Sport</option>
-                                                        <option value="3" <?= $data_task->task_category_id == '3' ? ' selected ' : ''; ?>>Study</option>
+                                                        <option value="1" <?= $data_task->task_category_id == '1' ? ' selected ' : ''; ?>>Study</option>
+                                                        <option value="2" <?= $data_task->task_category_id == '2' ? ' selected ' : ''; ?>>Work</option>
+                                                        <option value="3" <?= $data_task->task_category_id == '3' ? ' selected ' : ''; ?>>Sport</option>
                                                         <option value="4" <?= $data_task->task_category_id == '4' ? ' selected ' : ''; ?>>Rest</option>
                                                         <option value="5" <?= $data_task->task_category_id == '5' ? ' selected ' : ''; ?>>Grocery</option>
                                                         <option value="6" <?= $data_task->task_category_id == '6' ? ' selected ' : ''; ?>>Others</option>
@@ -274,9 +274,9 @@
                                                     <label>Category:</label>
                                                     <select class="form-control" id="sel1" name="task_category_id">
                                                         <option value="">-- Choose category --</option>
-                                                        <option value="1" <?= $data_task->task_category_id == '1' ? ' selected ' : ''; ?>>Work</option>
-                                                        <option value="2" <?= $data_task->task_category_id == '2' ? ' selected ' : ''; ?>>Sport</option>
-                                                        <option value="3" <?= $data_task->task_category_id == '3' ? ' selected ' : ''; ?>>Study</option>
+                                                        <option value="1" <?= $data_task->task_category_id == '1' ? ' selected ' : ''; ?>>Study</option>
+                                                        <option value="2" <?= $data_task->task_category_id == '2' ? ' selected ' : ''; ?>>Work</option>
+                                                        <option value="3" <?= $data_task->task_category_id == '3' ? ' selected ' : ''; ?>>Sport</option>
                                                         <option value="4" <?= $data_task->task_category_id == '4' ? ' selected ' : ''; ?>>Rest</option>
                                                         <option value="5" <?= $data_task->task_category_id == '5' ? ' selected ' : ''; ?>>Grocery</option>
                                                         <option value="6" <?= $data_task->task_category_id == '6' ? ' selected ' : ''; ?>>Others</option>
