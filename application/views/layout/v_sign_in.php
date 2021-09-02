@@ -60,14 +60,11 @@
 
 					<div class="flex-sb-m w-full p-t-3 p-b-32">
 						<div class="contact100-form-checkbox">
-							<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-							<label class="label-checkbox100" for="ckb1">
-								Remember me
-							</label>
+							
 						</div>
 
 						<div>
-							<a href="<?= site_url('send_email') ?>" class="txt1">
+							<a href="<?= site_url('index.php/send_email') ?>" class="txt1">
 								Forgot Password?
 							</a>
 						</div>
@@ -76,7 +73,7 @@
 
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn" type="submit">
-							Login
+							Sign In
 						</button>
 					</div>
 
@@ -106,10 +103,6 @@
 			</div>
 		</div>
 	</div>
-
-
-
-
 
 	<!--===============================================================================================-->
 	<script src="<?= config_item('vendor') ?>jquery/jquery-3.2.1.min.js"></script>

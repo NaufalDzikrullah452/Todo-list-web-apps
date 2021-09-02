@@ -12,6 +12,6 @@ class Send_email extends CI_Controller {
     {
         // code to send email here
 
-        redirect(site_url('verification_code'));
+        redirect(site_url('index.php/verification_code'));
     }
 }

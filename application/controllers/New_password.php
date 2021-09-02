@@ -12,6 +12,6 @@ class New_password extends CI_Controller {
     {
         // code to renew password here
 
-        redirect(site_url('sign_in'));
+        redirect(site_url('index.php/sign_in'));
     }
 }

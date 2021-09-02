@@ -34,16 +34,6 @@
                                             <h4 class="mb-1"> By Category </h4>
                                         </div>
 
-                                        <div>
-                                            <div class="dropdown custom-dropdown">
-                                                <div data-toggle="dropdown"><i class="ti-more-alt"></i>
-                                                </div>
-                                                <div class="dropdown-menu dropdown-menu-right">
-                                                    <a class="dropdown-item" href="#"><i class="fa fa-calendar menu-icon"></i> Sort by Date</a>
-                                                    <a class="dropdown-item" href="#"><i class="star-toggle ti-star"></i> Sort by Priority</a>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
                                     <!-- Pie Chart -->
                                     <div id="category_task"></div>
@@ -55,16 +45,6 @@
                                             <h4 class="mb-1"> By Monthly </h4>
                                         </div>
 
-                                        <div>
-                                            <div class="dropdown custom-dropdown">
-                                                <div data-toggle="dropdown"><i class="ti-more-alt"></i>
-                                                </div>
-                                                <div class="dropdown-menu dropdown-menu-right">
-                                                    <a class="dropdown-item" href="#"><i class="fa fa-calendar menu-icon"></i> Sort by Date</a>
-                                                    <a class="dropdown-item" href="#"><i class="star-toggle ti-star"></i> Sort by Priority</a>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
                                     <!-- Line Chart -->
                                     <div id="monthly_task"></div>

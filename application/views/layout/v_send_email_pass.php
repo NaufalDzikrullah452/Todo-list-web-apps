@@ -32,7 +32,7 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form" action="<?= site_url('send_email/send')?>" method="POST">
+				<form class="login100-form validate-form" action="<?= site_url('index.php/send_email/send')?>" method="POST">
 					<span class="login100-form-title p-b-43">
 						Forgot Password?
 					</span>

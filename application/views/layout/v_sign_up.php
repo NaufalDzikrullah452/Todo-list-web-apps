@@ -66,15 +66,6 @@
 						<span class="label-input100">Confirm Password</span>
 					</div>
 
-					<div class="flex-sb-m w-full p-t-3 p-b-32">
-						<div class="contact100-form-checkbox">
-							<input class="input-checkbox100" id="ckb1" type="checkbox" name="terms">
-							<label class="label-checkbox100" for="ckb1">
-								I agree to platform’s Terms Of Service and Privacy Policy
-							</label>
-						</div>
-					</div>
-
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn" type="submit">
 							Sign In
@@ -83,7 +74,7 @@
 
 					<div><br>
 						Already have an account?
-						<a href="<?= site_url('index.php/sign_in') ?>" class="txt3"> &nbsp;Sign In</a>
+						<a href="<?= site_url('index.php/sign_in') ?>" class="txt3"> &nbsp;Sign Up</a>
 					</div>
 					<br>
 					<hr>
@@ -107,10 +98,6 @@
 			</div>
 		</div>
 	</div>
-
-
-
-
 
 	<!--===============================================================================================-->
 	<script src="<?= config_item('vendor') ?>jquery/jquery-3.2.1.min.js"></script>

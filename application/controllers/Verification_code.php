@@ -12,6 +12,6 @@ class Verification_code extends CI_Controller {
     {
         // code to verify the verification code here
 
-        redirect(site_url('new_password'));
+        redirect(site_url('index.php/new_password'));
     }
 }
