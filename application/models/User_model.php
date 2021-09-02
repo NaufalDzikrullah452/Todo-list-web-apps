@@ -9,6 +9,22 @@ class User_model extends CI_Model
     public $user_email;
     public $user_password;
 
+    public function rules()
+    {
+        return [
+            [
+                'field' => 'nama',
+                'label' => 'Username',
+                'rules' => 'required'
+            ],
+            [
+                'field' => 'email',
+                'label' => 'Email',
+                'rules' => 'required'
+            ],
+        ];
+    }
+
     public function getAll()
     {
         return $this->db->get($this->_table)->result();
@@ -19,32 +35,55 @@ class User_model extends CI_Model
         return $this->db->get_where($this->_table, array('user_id' => $id))->row();
     }
 
-    public function save()
+    public function update($user_id)
     {
         $post = $this->input->post();
 
-        $this->user_picture = $post['user_picture'];
-        $this->user_username = $post['user_username'];
-        $this->user_email = $post['user_email'];
-        $this->user_password = $post['user_password'];
+        $data = array(
+            'user_username' => $post['nama'],
+            'user_email' => $post['email'],
+            'user_password' => $post['password'] == null ? $this->session->userdata('user_password') : $post['password']
+        );
 
-        return $this->db->insert($this->_table, $this);
-    }
+        if (!empty($_FILES["filefoto"]["name"])) {
+            $new_filename = $this->_upload_file();
+            $old_filename = $this->getById($user_id)->user_picture;
 
-    public function update($id)
-    {
-        $post = $this->input->post();
+            $data['user_picture'] = $new_filename ? $new_filename : $old_filename;
+            $this->_delete_file($old_filename);
+        }
 
-        $this->user_picture = $post['user_picture'];
-        $this->user_username = $post['user_username'];
-        $this->user_email = $post['user_email'];
-        $this->user_password = $post['user_password'];
-
-        return $this->db->update($this->_table, $this, array('user_id', $id));
+        $this->db->update($this->_table, $data, array('user_id' => $user_id));
+        return $this->db->affected_rows();
     }
 
     public function delete($id)
     {
         return $this->db->delete($this->_table, array('user_id', $id));
+    }
+
+    private function _upload_file()
+    {
+        $config['upload_path']          = './uploads/';
+        $config['file_name'] = 'profil_' . md5(uniqid());
+        $config['allowed_types']        = 'jpg|png';
+        $config['max_size']             = 2048;
+
+        $this->load->library('upload', $config);
+
+        if ($this->upload->do_upload('filefoto')) {
+            return $this->upload->data("file_name");
+        }
+
+        return NULL;
+    }
+
+    private function _delete_file($filename = NULL)
+    {
+        $this->load->helper('file');
+
+        if ($filename !== NULL) {
+            delete_files('./uploads/' . $filename);
+        }
     }
 }
