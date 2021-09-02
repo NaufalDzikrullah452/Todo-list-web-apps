@@ -48,11 +48,11 @@
                                     <!-- Nav tabs -->
                                     <div class="default-tab">
                                         <ul class="nav nav-tabs mb-3" role="tablist">
-                                            <li class="nav-item"><a class="nav-link" data-toggle="tab" href="<?= site_url('index.php/dashboard/Task') ?>">All Task</a>
+                                            <li class="nav-item"><a class="nav-link" href="<?= site_url('index.php/dashboard/task') ?>">All Task</a>
                                             </li>
-                                            <li class="nav-item" class="active"><a class="nav-link active" data-toggle="tab" href="#pending">Pending</a>
+                                            <li class="nav-item" class="active"><a class="nav-link active" href="<?= site_url('index.php/dashboard/task/pending') ?>">Pending</a>
                                             </li>
-                                            <li class="nav-item"><a class="nav-link" data-toggle="tab" href="<?= site_url('index.php/dashboard/Task/complete') ?>">Complete</a>
+                                            <li class="nav-item"><a class="nav-link" href="<?= site_url('index.php/dashboard/task/complete') ?>">Complete</a>
                                             </li>
                                         </ul>
                                         <div class="tab-content">
