@@ -42,7 +42,7 @@ class User_model extends CI_Model
         $data = array(
             'user_username' => $post['nama'],
             'user_email' => $post['email'],
-            'user_password' => $post['password'] == null ? $this->session->userdata('user_password') : $post['password']
+            'user_password' => $post['password'] == null || $post['password'] == "" ? $this->session->userdata('user_password') : $post['password']
         );
 
         if (!empty($_FILES["filefoto"]["name"])) {
@@ -67,13 +67,19 @@ class User_model extends CI_Model
         $config['upload_path']          = './uploads/';
         $config['file_name'] = 'profil_' . md5(uniqid());
         $config['allowed_types']        = 'jpg|png';
-        $config['max_size']             = 2048;
+        $config['max_size']             = 5012;
 
         $this->load->library('upload', $config);
 
-        if ($this->upload->do_upload('filefoto')) {
+        var_dump("here");
+
+        if ($this->upload->do_upload("filefoto")) {
+            var_dump("please be here");
             return $this->upload->data("file_name");
         }
+
+        var_dump("whyhere");
+        die();
 
         return NULL;
     }
@@ -83,7 +89,7 @@ class User_model extends CI_Model
         $this->load->helper('file');
 
         if ($filename !== NULL) {
-            delete_files('./uploads/' . $filename);
+            delete_files('../uploads/' . $filename);
         }
     }
 }
