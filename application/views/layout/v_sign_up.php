@@ -75,22 +75,7 @@
 					<div><br>
 						Already have an account?
 						<a href="<?= site_url('index.php/sign_in') ?>" class="txt3"> &nbsp;Sign Up</a>
-					</div>
-					<br>
-					<hr>
-					<div class="text-center p-t-30 p-b-20">
-						<span class="txt2">
-							or sign up using
-						</span>
-					</div>
-
-					<div class="login100-form-social flex-c-m">
-
-						<a href="#" class="login100-form-social-item flex-c-m bg2 m-r-5">
-							<i class="fa fa-google" aria-hidden="true"></i>
-						</a>
-
-					</div>
+					</div>	
 				</form>
 
 				<div class="login100-more" style="background-image: url('<?php echo base_url('assets/auth/images/bg_icon.jpg'); ?>')">
