@@ -57,6 +57,10 @@ class Task_model extends CI_Model
     {
         return $this->db->get_where($this->_table, array('task_user_id' => $user_id))->result();
     }
+    public function getTaskById($id)
+    {
+        return $this->db->get_where($this->_table, array('task_id' => $id))->row();
+    }
 
     public function getTotalByUserId($user_id)
     {
@@ -131,7 +135,7 @@ class Task_model extends CI_Model
 
     public function update_status($id)
     {
-        $data = $this->getAllByUserId($id);
+        $data = $this->getTaskById($id);
 
         $this->db->where('task_id', $id);
 
@@ -146,7 +150,7 @@ class Task_model extends CI_Model
     }
     public function update_priority_status($id)
     {
-        $data = $this->getAllByUserId($id);
+        $data = $this->getTaskById($id);
 
         $this->db->where('task_id', $id);
 

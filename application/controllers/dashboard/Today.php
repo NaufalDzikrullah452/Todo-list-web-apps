@@ -75,9 +75,9 @@ class Today extends CI_Controller
     public function edit_priority_status()
     {
         if ($this->task_model->update_priority_status($this->input->post('task_id'))) {
-            $data = array('responce' => 1, 'message' => 'Task Priority!');
+            $data = array('responce' => '1', 'message' => 'Task Priority!');
         } else {
-            $data = array('responce' => 0, 'message' => 'Task Unpriority!');
+            $data = array('responce' => '0', 'message' => 'Task Unpriority!');
         }
         echo json_encode($data);
     }

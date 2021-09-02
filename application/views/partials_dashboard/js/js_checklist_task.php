@@ -12,10 +12,12 @@
                 },
                 success: function(data) {
                     if (data.responce == "complete") {
+                        // alert(data.message);
                         $('#task_name_' + task_id).css(
                             'text-decoration', 'line-through'
                         );
                     } else {
+                        // alert(data.message);
                         $('#task_name_' + task_id).css(
                             'text-decoration', 'none'
                         );

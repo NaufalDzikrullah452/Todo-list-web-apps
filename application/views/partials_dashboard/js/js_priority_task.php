@@ -11,7 +11,7 @@
                     task_id: task_id
                 },
                 success: function(data) {
-                    if (data.responce == 1) {
+                    if (data.responce == '1') {
                         // alert(data.message);
                         $('#priority-' + task_id).css(
                             'color', '#FFB319'
