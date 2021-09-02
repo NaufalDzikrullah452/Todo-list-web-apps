@@ -49,14 +49,14 @@
 					</div>
 
                     <div class="wrap-input100 validate-input" data-validate="Password is required">
-						<input class="input100" type="password" name="pass">
+						<input class="input100" type="password" name="pass2">
 						<span class="focus-input100"></span>
 						<span class="label-input100">Confirm New Password</span>
 					</div>
 
                     <br><br>
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
+						<button class="login100-form-btn" type="submit">
 							Create
 						</button>
 					</div>

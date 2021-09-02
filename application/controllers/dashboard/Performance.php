@@ -7,7 +7,7 @@ class Performance extends CI_Controller {
     {
         parent::__construct();
         $this->load->helper(array('url'));
-        $this->load->model(array('Task_model', 'Subtask_model'));
+        $this->load->model(array('Task_model', 'Subtask_model', 'User_model'));
     }
     
 	public function index()
@@ -15,6 +15,7 @@ class Performance extends CI_Controller {
         if ($this->session->userdata('user_email') == null) redirect('index.php/sign_in');
 
         $data['title'] = "Performance";
+        $data['user'] = $this->User_model->getById($this->session->userdata('user_id'));
 
         $this->load->view('partials_dashboard/header',$data);
         $this->load->view('partials_dashboard/sidebar');

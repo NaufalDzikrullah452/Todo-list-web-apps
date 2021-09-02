@@ -8,6 +8,7 @@ class User_model extends CI_Model
     public $user_username;
     public $user_email;
     public $user_password;
+    public $user_verif_code;
 
     public function rules()
     {
@@ -42,7 +43,7 @@ class User_model extends CI_Model
         $data = array(
             'user_username' => $post['nama'],
             'user_email' => $post['email'],
-            'user_password' => $post['password'] == null || $post['password'] == "" ? $this->session->userdata('user_password') : $post['password']
+            'user_password' => $post['password'] == null || $post['password'] == "" ? $this->session->userdata('user_password') : md5($post['password'])
         );
 
         if (!empty($_FILES["filefoto"]["name"])) {
@@ -85,5 +86,28 @@ class User_model extends CI_Model
         if ($filename !== NULL) {
             delete_files('../uploads/' . $filename);
         }
+    }
+
+    public function getVerifCode($user_email)
+    {
+        return $this->db->get_where($this->_table, array('user_email' => $user_email))->row()->user_verif_code;
+    }
+
+    public function updateVerifCode($user_email, $code)
+    {
+        $data = array(
+            'user_verif_code' => $code
+        );
+
+        return $this->db->update($this->_table, $data, array('user_email' => $user_email));
+    }
+
+    public function update_password($user_email, $new_pass)
+    {
+        $data = array(
+            'user_password' => $new_pass
+        );
+
+        return $this->db->update($this->_table, $data, array('user_email' => $user_email));
     }
 }

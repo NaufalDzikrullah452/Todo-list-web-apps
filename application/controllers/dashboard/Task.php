@@ -9,7 +9,7 @@ class Task extends CI_Controller
         parent::__construct();
         $this->load->helper(array('form', 'url'));
         $this->load->library(array('form_validation'));
-        $this->load->model(array('Task_model', 'Subtask_model'));
+        $this->load->model(array('Task_model', 'Subtask_model', 'User_model'));
         $this->load->model('task_model');
         $this->load->model('subtask_model');
     }
@@ -19,6 +19,7 @@ class Task extends CI_Controller
         if ($this->session->userdata('user_email') == null) redirect('index.php/sign_in');
 
         $data['title'] = "Task";
+        $data['user'] = $this->User_model->getById($this->session->userdata('user_id'));
 
         $data['task'] = $this->Task_model->getAllByUserId($this->session->userdata('user_id'));
 
@@ -40,6 +41,7 @@ class Task extends CI_Controller
     public function pending()
     {
         $data['title'] = "Pending Task";
+        $data['user'] = $this->User_model->getById($this->session->userdata('user_id'));
 
         $data['task'] = $this->Task_model->getAllUncompletedByUserId($this->session->userdata('user_id'));
 
@@ -60,6 +62,7 @@ class Task extends CI_Controller
     public function complete()
     {
         $data['title'] = "Complete Task";
+        $data['user'] = $this->User_model->getById($this->session->userdata('user_id'));
 
         $data['task'] = $this->Task_model->getAllCompletedByUserId($this->session->userdata('user_id'));
 
