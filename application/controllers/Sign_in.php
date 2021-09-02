@@ -36,7 +36,8 @@ class Sign_in extends CI_Controller
 					'user_id' => $user['user_id'],
 					'user_picture' => $user['user_picture'],
 					'user_username' => $user['user_username'],
-					'user_email' => $user['user_email']
+					'user_email' => $user['user_email'],
+					'user_password' => $user['user_password']
 				];
 				$this->session->set_userdata($data);
 				$this->session->set_userdata('logged', TRUE);
