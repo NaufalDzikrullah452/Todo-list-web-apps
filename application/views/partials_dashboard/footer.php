@@ -42,7 +42,11 @@
 
         <!-- js -->
         <script src="<?= config_item('js_dashboard') ?>plugins-init/form-pickers-init.js"></script>
-        
+
+        <!-- push.js -->
+        <script src="<?= config_item('js_dashboard') ?>push.js"></script>
+        <script src="<?= config_item('js_dashboard') ?>serviceWorker.min.js"></script>
+
 
         </body>
 

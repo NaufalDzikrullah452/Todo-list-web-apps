@@ -28,9 +28,8 @@ class Today extends CI_Controller
         $data['title'] = "Today";
 
         // get date today
-        $var = date("Y-m-d");
-        $str_rep = str_replace('-', '/', $var);
-        $today = date('Y-m-d', strtotime($str_rep));
+        $dt = new DateTime("now", new DateTimeZone('Asia/Singapore'));
+        $today = $dt->format('Y-m-d');
 
         $data['task'] = $this->task_model->getAllByUserIdToday($this->session->userdata('user_id'), $today);
 
@@ -46,6 +45,7 @@ class Today extends CI_Controller
         $this->load->view('partials_dashboard/js/js_checklist_task');
         $this->load->view('partials_dashboard/js/js_priority_task');
         $this->load->view('partials_dashboard/js/js_checklist_subtask');
+        $this->load->view('partials_dashboard/js/js_notification');
     }
 
     public function save()

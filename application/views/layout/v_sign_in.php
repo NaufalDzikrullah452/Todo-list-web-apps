@@ -82,20 +82,6 @@
 						<a href="<?php echo site_url('index.php/sign_up'); ?>" class="txt3"> &nbsp;Sign Up</a>
 					</div>
 					<br>
-					<hr>
-					<div class="text-center p-t-30 p-b-20">
-						<span class="txt2">
-							or sign in using
-						</span>
-					</div>
-
-					<div class="login100-form-social flex-c-m">
-
-						<a href="#" class="login100-form-social-item flex-c-m bg2 m-r-5">
-							<i class="fa fa-google" aria-hidden="true"></i>
-						</a>
-
-					</div>
 				</form>
 
 				<div class="login100-more" style="background-image: url('<?php echo base_url('assets/auth/images/bg_icon.jpg'); ?>')">

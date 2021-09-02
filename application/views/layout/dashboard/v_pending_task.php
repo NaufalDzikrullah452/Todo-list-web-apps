@@ -60,7 +60,7 @@
                                                 <div class="p-t-15">
                                                     <?php
 
-                                                    foreach ($pendingTasks as $data_task) :
+                                                    foreach ($task as $data_task) :
                                                         $style = '';
                                                         $checked = '';
                                                         $priority = '';
@@ -113,33 +113,33 @@
                                                             }
                                                         ?>
 
-                                                <li>
-                                                    <div class="email-list m-t-15">
-                                                        <div class="message">
-                                                            <div class="col-mail col-mail-2">
-                                                                <div class="email-checkbox">
-                                                                    
-                                                                    <!-- <label class="toggle" for="chk2"></label> -->
-                                                                </div>
-                                                            </div>
-                                                            <div class=" col-mail col-mail-2" >
-                                                                <div class="subject" style="<?= $style_subtask ?>" id="subtask_name_<?= $sub_task->subtask_id ?>">
-                                                                <input  style="margin-left: 10px;" type="checkbox" class="chk-sub" id="chk-sub-<?= $sub_task->subtask_id ?>" data-id="<?= $sub_task->subtask_id ?>" <?= $checked_subtask ?> >
-                                                                    <a href="#"  style="margin-left: 15px; font-size: 12px;" data-toggle="modal" data-target="#modalEditSub<?= $sub_task->subtask_id; ?>">
-                                                                        <?= $sub_task->subtask_name; ?>
-                                                                    </a>
-                                                                    
-                                                                </div>
-                                                                <div class="date">
-                                                                    <div class="dropdown custom-dropdown">
-                                                                        <input type="hidden" name="task_id" value="<?php echo $sub_task->subtask_id; ?>">
-                                                                        <a style="margin-left: 15px;" href="javascript:void(0);" data-toggle="modal" data-target="#modalDeleteSub<?= $sub_task->subtask_id; ?>"><i class="ti-trash"></i></a>
+                                                            <li>
+                                                                <div class="email-list m-t-15">
+                                                                    <div class="message">
+                                                                        <div class="col-mail col-mail-2">
+                                                                            <div class="email-checkbox">
+
+                                                                                <!-- <label class="toggle" for="chk2"></label> -->
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class=" col-mail col-mail-2">
+                                                                            <div class="subject" style="<?= $style_subtask ?>" id="subtask_name_<?= $sub_task->subtask_id ?>">
+                                                                                <input style="margin-left: 10px;" type="checkbox" class="chk-sub" id="chk-sub-<?= $sub_task->subtask_id ?>" data-id="<?= $sub_task->subtask_id ?>" <?= $checked_subtask ?>>
+                                                                                <a href="#" style="margin-left: 15px; font-size: 12px;" data-toggle="modal" data-target="#modalEditSub<?= $sub_task->subtask_id; ?>">
+                                                                                    <?= $sub_task->subtask_name; ?>
+                                                                                </a>
+
+                                                                            </div>
+                                                                            <div class="date">
+                                                                                <div class="dropdown custom-dropdown">
+                                                                                    <input type="hidden" name="task_id" value="<?php echo $sub_task->subtask_id; ?>">
+                                                                                    <a style="margin-left: 15px;" href="javascript:void(0);" data-toggle="modal" data-target="#modalDeleteSub<?= $sub_task->subtask_id; ?>"><i class="ti-trash"></i></a>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                </li>
-                                                    <?php endforeach; ?>
+                                                            </li>
+                                                        <?php endforeach; ?>
                                                         <!-- subtask -->
                                                     <?php endforeach; ?>
                                                 </div>
@@ -217,7 +217,7 @@
 
                         <!-- Modal Edit-->
                         <?php
-                        foreach ($pendingTasks as $data_task) :
+                        foreach ($task as $data_task) :
                             /* y/m/d to y-m-d */
                             $var = $data_task->task_due_date;
                             $str_rep = str_replace('-', '/', $var);
@@ -287,7 +287,7 @@
                         <?php endforeach; ?>
                         <!-- Modal Edit-->
                         <!-- Modal Delete-->
-                        <?php foreach ($pendingTasks as $data_task) : ?>
+                        <?php foreach ($task as $data_task) : ?>
                             <form action="<?= base_url() . 'index.php/dashboard/Task/delete' ?>" method="POST">
                                 <div class="modal fade" id="modalDelete<?= $data_task->task_id; ?>">
                                     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -314,7 +314,7 @@
                         <!-- Modal Delete-->
                         <!-- Modal Add subtask-->
                         <?php
-                        foreach ($pendingTasks as $data_task) :
+                        foreach ($task as $data_task) :
                         ?>
                             <form action="<?= base_url() . 'index.php/dashboard/Task/save_subtask' ?>" method="POST">
                                 <div class="modal fade" id="modalAddSub<?= $data_task->task_id; ?>">
@@ -346,7 +346,7 @@
 
                         <!-- Modal Edit subtask-->
                         <?php
-                        foreach ($pendingTasks as $data_task) :
+                        foreach ($task as $data_task) :
                             foreach ($data_task->subtask as $sub_task) :
                         ?>
                                 <form action="<?= base_url() . 'index.php/dashboard/Task/edit_subtask' ?>" method="POST">
@@ -382,7 +382,7 @@
 
                         <!-- Modal Delete subtask-->
                         <?php
-                        foreach ($pendingTasks as $data_task) :
+                        foreach ($task as $data_task) :
                             foreach ($data_task->subtask as $sub_task) :
                         ?>
                                 <form action="<?= base_url() . 'index.php/dashboard/Task/delete_subtask' ?>" method="POST">
