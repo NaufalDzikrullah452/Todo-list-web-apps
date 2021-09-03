@@ -4,7 +4,7 @@
         <?php
         // get time now
         date_default_timezone_set('Asia/Singapore');
-        $time_now = date('Y-m-d H:i', time());
+        $time_now = date('Y-m-d H:i:s', time());
 
         foreach ($task as $data_task) :
             $time = $data_task->task_time;
