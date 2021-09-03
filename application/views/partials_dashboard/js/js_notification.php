@@ -24,8 +24,8 @@
 
             // check time now 1 hour before equals with task time 1 hour before
             // cause we need notif 1 hour before 
-            if ($time_now >= $task_time_1_hour && $time_now <= $task_time) :
-                // if (true) :
+            // if ($time_now >= $task_time_1_hour && $time_now <= $task_time ) :
+            if ($diff->i >= 0 && $diff->i <= 60 && $diff->h == 0 && $task_time > $time_now) :
         ?>
                 Push.create(
                     'Reminder Task <?= $data_task->task_name ?> (<?= $time ?>)', {
