@@ -105,7 +105,20 @@ class Task extends CI_Controller
 
     public function edit()
     {
-        if ($this->task_model->update($this->input->post('task_id'))) {
+        $var = $this->input->post('task_due_date');
+        $str_rep = str_replace('/', '-', $var);
+        $date = date('Y-d-m', strtotime($str_rep));
+        $data = [
+            'task_user_id' => $this->session->userdata('user_id'),
+            'task_name' => $this->input->post('task_name', true),
+            'task_description' => $this->input->post('task_description', true),
+            'task_category_id' => $this->input->post('task_category_id', true),
+            'task_status' => 'uncomplete',
+            'task_due_date' => $date,
+            'task_time' => $this->input->post('task_time', true),
+            'task_priority_status' => '0'
+        ];
+        if ($this->task_model->update($this->input->post('task_id'), $data)) {
             redirect('index.php/dashboard/task');
         }
     }

@@ -120,22 +120,9 @@ class Task_model extends CI_Model
         return $this->db->insert($this->_table, $data);
     }
 
-    public function update($id)
+    public function update($id, $data)
     {
-        $post = $this->input->post();
-
-        $this->task_name = $post['task_name'];
-        $this->task_description = $post['task_description'];
-        $this->task_status = $post['task_status'];
-        $this->task_due_date = $post['task_due_date'];
-        $this->task_time = $post['task_time'];
-        $this->task_priority_status = $post['task_priority_status'];
-
-        $this->task_user_id = $post['task_user_id'];
-        $this->task_category_id = $post['task_category_id'];
-
-        // var_dump($this);
-        return $this->db->update($this->_table, $this, array('task_id' => $id));
+        return $this->db->update($this->_table, $data, array('task_id' => $id));
     }
 
 

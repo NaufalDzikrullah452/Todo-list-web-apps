@@ -29,7 +29,7 @@
         ?>
                 Push.create(
                     'Reminder Task <?= $data_task->task_name ?> (<?= $time ?>)', {
-                        body: "Time Remaining : <?= $diff->i ?> Minute",
+                        body: "Time Remaining : <?= $diff->i ?> Minutes",
                         timeout: 10000,
                         onClick: function() {
                             window.focus();
