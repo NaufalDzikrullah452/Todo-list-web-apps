@@ -3,7 +3,7 @@
         /// call your function here
         <?php
         // get time now
-        date_default_timezone_set('Asia/Singapore');
+        date_default_timezone_set('Asia/Jakarta');
         $time_now = date('Y-m-d H:i:s', time());
 
         foreach ($task as $data_task) :
