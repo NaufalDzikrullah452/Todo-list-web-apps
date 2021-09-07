@@ -81,10 +81,10 @@ class Today extends CI_Controller
             'task_name' => $this->input->post('task_name', true),
             'task_description' => $this->input->post('task_description', true),
             'task_category_id' => $this->input->post('task_category_id', true),
-            'task_status' => 'uncomplete',
+            'task_status' => $this->input->post('task_status', true),
             'task_due_date' => $date,
             'task_time' => $this->input->post('task_time', true),
-            'task_priority_status' => '0'
+            'task_priority_status' => $this->input->post('task_priority_status', true),
         ];
         if ($this->task_model->update($this->input->post('task_id'), $data)) {
             redirect('index.php/dashboard/today');
