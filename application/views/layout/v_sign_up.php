@@ -68,13 +68,13 @@
 
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn" type="submit">
-							Sign In
+							Register
 						</button>
 					</div>
 
 					<div><br>
 						Already have an account?
-						<a href="<?= site_url('index.php/sign_in') ?>" class="txt3"> &nbsp;Sign Up</a>
+						<a href="<?= site_url('index.php/sign_in') ?>" class="txt3"> &nbsp;Log in</a>
 					</div>	
 				</form>
 

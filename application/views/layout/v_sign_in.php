@@ -73,13 +73,13 @@
 
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn" type="submit">
-							Sign In
+							Log In
 						</button>
 					</div>
 
 					<div><br>
 						Don't have an account?
-						<a href="<?php echo site_url('index.php/sign_up'); ?>" class="txt3"> &nbsp;Sign Up</a>
+						<a href="<?php echo site_url('index.php/sign_up'); ?>" class="txt3"> &nbsp;Register</a>
 					</div>
 					<br>
 				</form>
